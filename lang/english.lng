@@ -1,0 +1,30 @@
+##grflangid 0x01
+# british english
+
+# GRF name and description definitions
+STR_GRF_NAME        :{TITLE} {VERSION}
+STR_GRF_DESCRIPTION :TITLE} is another road set that attempts to fulfill the basic requirements for a game. It contains dirt roads, town roads, country roads, highways and also different tramway rails.{}{COPYRIGHT}2020 Auge{}License: GPL v2
+
+# street names
+STR_STREET_NAME_FOOTPATH                          :Foot path
+STR_STREET_NAME_PRECINCT                          :Precinct
+STR_STREET_NAME_FOREST_PATH                       :Forest path
+STR_STREET_NAME_FARM_PATH                         :Farm path
+STR_STREET_NAME_PAVED_TOWN_ROAD                   :Set paved town road
+STR_STREET_NAME_PAVED_TOWN_ROAD_TROLLEY           :Set paved town road with trolley wires
+STR_STREET_NAME_ASPHALT_TOWN_ROAD                 :Asphalt town road
+STR_STREET_NAME_ASPHALT_TOWN_ROAD_TROLLEY         :Asphalt town road with trolley wires
+STR_STREET_NAME_INDUSTRY                          :Industry road
+STR_STREET_NAME_PAVED_COUNTRY_ROAD                :Set paved country road
+STR_STREET_NAME_CONCRETE_COUNTRY_ROAD             :Contrete slab country road
+STR_STREET_NAME_ASPHALT_COUNTRY_ROAD              :Asphalt country road
+STR_STREET_NAME_CONCRETE_HIGHWAY                  :Concrete highway
+STR_STREET_NAME_ASPHALT_HIGHWAY                   :Asphalt highway
+
+# tramway names
+STR_STREET_NAME_TRAM_TOWN_OLD_NON_ELECTRIFIED     :Old nonelectrified town tram
+STR_STREET_NAME_TRAM_TOWN_OLD_ELECTRIFIED         :Old electrified town tram
+STR_STREET_NAME_TRAM_TOWN_NEW_ELECTRIFIED         :Modern electrified town tram
+STR_STREET_NAME_TRAM_COUNTRY_OLD_NON_ELECTRIFIED  :Old nonelectrified interurban tram
+STR_STREET_NAME_TRAM_COUNTRY_OLD_ELECTRIFIED      :Old electrified interurban tram
+STR_STREET_NAME_TRAM_COUNTRY_NEW_ELECTRIFIED      :Moderne electrified interurban tram

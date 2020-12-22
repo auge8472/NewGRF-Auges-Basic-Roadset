@@ -1,0 +1,30 @@
+##grflangid 0x02
+# deutsch (de)
+
+# GRF name and description definitions
+STR_GRF_NAME        :{TITLE} {VERSION}
+STR_GRF_DESCRIPTION :{TITLE} ist ein weiteres NRT-kompatibles Straßenset, dass die grundlegenden Zwecke erfüllen soll. Es enthält unbefestigte Wege und Straßen, städtische Straßen, Landstraßen, Autobahnen sowie verschiedene Straßenbahngleise.{}{COPYRIGHT}2020 Auge{}Lizenz: GPL v2
+
+# street names
+STR_STREET_NAME_FOOTPATH                          :Fußweg
+STR_STREET_NAME_PRECINCT                          :Fußgängerzone
+STR_STREET_NAME_FOREST_PATH                       :Waldweg
+STR_STREET_NAME_FARM_PATH                         :Feldweg
+STR_STREET_NAME_PAVED_TOWN_ROAD                   :Gepflasterte Stadtstraße
+STR_STREET_NAME_PAVED_TOWN_ROAD_TROLLEY           :Gepflasterte Stadtstraße mit Oberleitung
+STR_STREET_NAME_ASPHALT_TOWN_ROAD                 :Asphaltierte Stadtstraße
+STR_STREET_NAME_ASPHALT_TOWN_ROAD_TROLLEY         :Asphaltierte Stadtstraße mit Oberleitung
+STR_STREET_NAME_INDUSTRY                          :Werksstraße
+STR_STREET_NAME_PAVED_COUNTRY_ROAD                :Gepflasterte Landstraße
+STR_STREET_NAME_CONCRETE_COUNTRY_ROAD             :Betonplattenstraße
+STR_STREET_NAME_ASPHALT_COUNTRY_ROAD              :Asphaltierte Landstraße
+STR_STREET_NAME_CONCRETE_HIGHWAY                  :Betonierte Autobahn
+STR_STREET_NAME_ASPHALT_HIGHWAY                   :Asphaltierte Autobahn
+
+# tramway names
+STR_STREET_NAME_TRAM_TOWN_OLD_NON_ELECTRIFIED     :Alte nichtelektrifizierte Stadtstraßenbahn
+STR_STREET_NAME_TRAM_TOWN_OLD_ELECTRIFIED         :Alte elektrifizierte Stadtstraßenbahn
+STR_STREET_NAME_TRAM_TOWN_NEW_ELECTRIFIED         :Moderne elektrifizierte Stadtstraßenbahn
+STR_STREET_NAME_TRAM_COUNTRY_OLD_NON_ELECTRIFIED  :Alte nichtelektrifizierte Überlandstraßenbahn
+STR_STREET_NAME_TRAM_COUNTRY_OLD_ELECTRIFIED      :Alte elektrifizierte Überlandstraßenbahn
+STR_STREET_NAME_TRAM_COUNTRY_NEW_ELECTRIFIED      :Moderne elektrifizierte Überlandstraßenbahn
