@@ -37,10 +37,14 @@ STR_FOOT_PATH_MENU_TEXT                           :Bau von Fußwegen
 # farm road text snippets
 STR_FARM_PATH_TOOLBAR_CAPTION                     :Bau von Feldwegen
 STR_FARM_PATH_MENU_TEXT                           :Bau von Feldwegen
+
 # paved town roads text snippets
 STR_PAVED_TOWN_ROAD_TOOLBAR_CAPTION               :Bau von gepflasterten Stadtstraßen
 STR_PAVED_TOWN_ROAD_MENU_TEXT                     :Bau von gepflasterten Stadtstraßen
 
+# asphalt town roads text snippets
+STR_ASPHALT_TOWN_ROAD_TOOLBAR_CAPTION             :Bau von asphaltierten Stadtstraßen
+STR_ASPHALT_TOWN_ROAD_MENU_TEXT                   :Bau von asphaltierten Stadtstraßen
 
 # generic, reusable text snippets
 STR_GENERIC_BUILD_WINDOW_CAPTION                  :Neues Straßenfahrzeug
