@@ -30,6 +30,10 @@ STR_STREET_NAME_TRAM_COUNTRY_OLD_ELECTRIFIED      :Alte elektrifizierte Überlan
 STR_STREET_NAME_TRAM_COUNTRY_NEW_ELECTRIFIED      :Moderne elektrifizierte Überlandstraßenbahn
 
 
+# foot path text snippets
+STR_FOOT_PATH_TOOLBAR_CAPTION                     :Bau von Fußwegen
+STR_FOOT_PATH_MENU_TEXT                           :Bau von Fußwegen
+
 # generic, reusable text snippets
 STR_GENERIC_BUILD_WINDOW_CAPTION                  :Neues Straßenfahrzeug
 STR_GENERIC_AUTOREPLACE_TEXT                      :Straßenfahrzeuge
