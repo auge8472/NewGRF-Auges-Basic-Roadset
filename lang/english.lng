@@ -28,3 +28,9 @@ STR_STREET_NAME_TRAM_TOWN_NEW_ELECTRIFIED         :Modern electrified town tram
 STR_STREET_NAME_TRAM_COUNTRY_OLD_NON_ELECTRIFIED  :Old nonelectrified interurban tram
 STR_STREET_NAME_TRAM_COUNTRY_OLD_ELECTRIFIED      :Old electrified interurban tram
 STR_STREET_NAME_TRAM_COUNTRY_NEW_ELECTRIFIED      :Moderne electrified interurban tram
+
+
+# generic, reusable text snippets
+STR_GENERIC_BUILD_WINDOW_CAPTION                  :New Road Vehicles
+STR_GENERIC_AUTOREPLACE_TEXT                      :Road Vehicles
+STR_GENERIC_NEW_ENGINE_TEXT                       :New Road Vehicles

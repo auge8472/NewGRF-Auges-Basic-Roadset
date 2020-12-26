@@ -28,3 +28,9 @@ STR_STREET_NAME_TRAM_TOWN_NEW_ELECTRIFIED         :Moderne elektrifizierte Stadt
 STR_STREET_NAME_TRAM_COUNTRY_OLD_NON_ELECTRIFIED  :Alte nichtelektrifizierte Überlandstraßenbahn
 STR_STREET_NAME_TRAM_COUNTRY_OLD_ELECTRIFIED      :Alte elektrifizierte Überlandstraßenbahn
 STR_STREET_NAME_TRAM_COUNTRY_NEW_ELECTRIFIED      :Moderne elektrifizierte Überlandstraßenbahn
+
+
+# generic, reusable text snippets
+STR_GENERIC_BUILD_WINDOW_CAPTION                  :Neues Straßenfahrzeug
+STR_GENERIC_AUTOREPLACE_TEXT                      :Straßenfahrzeuge
+STR_GENERIC_NEW_ENGINE_TEXT                       :Neues Straßenfahrzeug
