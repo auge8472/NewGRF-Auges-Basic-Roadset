@@ -50,6 +50,26 @@ STR_PAVED_TOWN_ROAD_MENU_TEXT                     :Bau von gepflasterten Stadtst
 STR_ASPHALT_TOWN_ROAD_TOOLBAR_CAPTION             :Bau von asphaltierten Stadtstraßen
 STR_ASPHALT_TOWN_ROAD_MENU_TEXT                   :Bau von asphaltierten Stadtstraßen
 
+# paved country road text snippets
+STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION            :Bau von gepflasterten Landstraßen
+STR_PAVED_COUNTRY_ROAD_MENU_TEXT                  :Bau von gepflasterten Landstraßen
+
+# concrete country road text snippets
+STR_CONCRETE_COUNTRY_ROAD_TOOLBAR_CAPTION         :Bau von betonierten Landstraßen
+STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT               :Bau von betonierten Landstraßen
+
+# asphalt country road text snippets
+STR_ASPHALT_COUNTRY_ROAD_TOOLBAR_CAPTION          :Bau von asphaltierten Landstraßen
+STR_ASPHALT_COUNTRY_ROAD_MENU_TEXT                :Bau von asphaltierten Landstraßen
+
+# concrete highway text snippets
+STR_CONCRETE_HIGHWAY_TOOLBAR_CAPTION              :Bau von betonierten Autobahnen
+STR_CONCRETE_HIGHWAY_MENU_TEXT                    :Bau von betonierten Autobahnen
+
+# asphalt highway text snippets
+STR_ASPHALT_HIGHWAY_TOOLBAR_CAPTION               :Bau von asphaltierten Autobahnen
+STR_ASPHALT_HIGHWAY_MENU_TEXT                     :Bau von asphaltierten Autobahnen
+
 # generic, reusable text snippets
 STR_GENERIC_BUILD_WINDOW_CAPTION                  :Neues Straßenfahrzeug
 STR_GENERIC_AUTOREPLACE_TEXT                      :Straßenfahrzeuge

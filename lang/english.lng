@@ -50,6 +50,26 @@ STR_PAVED_TOWN_ROAD_MENU_TEXT                     :Paved Town Road Construction
 STR_ASPHALT_TOWN_ROAD_TOOLBAR_CAPTION             :Asphalt Town Road Construction
 STR_ASPHALT_TOWN_ROAD_MENU_TEXT                   :Asphalt Town Road Construction
 
+# paved country road text snippets
+STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION            :Paved Country Road Construction
+STR_PAVED_COUNTRY_ROAD_MENU_TEXT                  :Paved Country Road Construction
+
+# concrete country road text snippets
+STR_CONCRETE_COUNTRY_ROAD_TOOLBAR_CAPTION         :Concrete Country Road Construction
+STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT               :Concrete Country Road Construction
+
+# asphalt country road text snippets
+STR_ASPHALT_COUNTRY_ROAD_TOOLBAR_CAPTION          :Asphalt Country Road Construction
+STR_ASPHALT_COUNTRY_ROAD_MENU_TEXT                :Asphalt Country Road Construction
+
+# concrete highway text snippets
+STR_CONCRETE_HIGHWAY_TOOLBAR_CAPTION              :Concrete Highway Construction
+STR_CONCRETE_HIGHWAY_MENU_TEXT                    :Concrete Highway Construction
+
+# asphalt highway text snippets
+STR_ASPHALT_HIGHWAY_TOOLBAR_CAPTION               :Asphalt Highway Construction
+STR_ASPHALT_HIGHWAY_MENU_TEXT                     :Asphalt Highway Construction
+
 # generic, reusable text snippets
 STR_GENERIC_BUILD_WINDOW_CAPTION                  :New Road Vehicles
 STR_GENERIC_AUTOREPLACE_TEXT                      :Road Vehicles
