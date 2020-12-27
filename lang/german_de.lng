@@ -5,6 +5,10 @@
 STR_GRF_NAME        :{TITLE} {VERSION}
 STR_GRF_DESCRIPTION :{TITLE} ist ein weiteres NRT-kompatibles Straßenset, dass die grundlegenden Zwecke erfüllen soll. Es enthält unbefestigte Wege und Straßen, städtische Straßen, Landstraßen, Autobahnen sowie verschiedene Straßenbahngleise.{}{COPYRIGHT}2020 Auge{}Lizenz: GPL v2
 
+# general error messages (taken from Countryroads)
+STR_WRONG_PLATFORM                                :In dieser GRF werden Funktionen benutzt, die in TTDPatch nicht verfügbar sind.
+STR_WRONG_OPENTTD_VERSION                         :In dieser GRF werden Funktionen benutzt, die in OpenTTD-Versionen vor {SUPPORTEDVERSION} nicht unterstützt werden.
+
 # street names
 STR_STREET_NAME_FOOTPATH                          :Fußweg
 STR_STREET_NAME_PRECINCT                          :Fußgängerzone
