@@ -36,39 +36,39 @@ STR_STREET_NAME_TRAM_COUNTRY_NEW_ELECTRIFIED      :Moderne elektrifizierte Über
 
 # foot path text snippets
 STR_FOOT_PATH_TOOLBAR_CAPTION                     :Bau von Fußwegen
-STR_FOOT_PATH_MENU_TEXT                           :Bau von Fußwegen
+STR_FOOT_PATH_MENU_TEXT                           :Fußwege
 
 # farm road text snippets
 STR_FARM_PATH_TOOLBAR_CAPTION                     :Bau von Feldwegen
-STR_FARM_PATH_MENU_TEXT                           :Bau von Feldwegen
+STR_FARM_PATH_MENU_TEXT                           :Feldwege
 
 # paved town roads text snippets
 STR_PAVED_TOWN_ROAD_TOOLBAR_CAPTION               :Bau von gepflasterten Stadtstraßen
-STR_PAVED_TOWN_ROAD_MENU_TEXT                     :Bau von gepflasterten Stadtstraßen
+STR_PAVED_TOWN_ROAD_MENU_TEXT                     :Gepflasterte Stadtstraßen
 
 # asphalt town roads text snippets
 STR_ASPHALT_TOWN_ROAD_TOOLBAR_CAPTION             :Bau von asphaltierten Stadtstraßen
-STR_ASPHALT_TOWN_ROAD_MENU_TEXT                   :Bau von asphaltierten Stadtstraßen
+STR_ASPHALT_TOWN_ROAD_MENU_TEXT                   :Asphaltierte Stadtstraßen
 
 # paved country road text snippets
 STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION            :Bau von gepflasterten Landstraßen
-STR_PAVED_COUNTRY_ROAD_MENU_TEXT                  :Bau von gepflasterten Landstraßen
+STR_PAVED_COUNTRY_ROAD_MENU_TEXT                  :Gepflasterte Landstraßen
 
 # concrete country road text snippets
 STR_CONCRETE_COUNTRY_ROAD_TOOLBAR_CAPTION         :Bau von betonierten Landstraßen
-STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT               :Bau von betonierten Landstraßen
+STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT               :Betonierte Landstraßen
 
 # asphalt country road text snippets
 STR_ASPHALT_COUNTRY_ROAD_TOOLBAR_CAPTION          :Bau von asphaltierten Landstraßen
-STR_ASPHALT_COUNTRY_ROAD_MENU_TEXT                :Bau von asphaltierten Landstraßen
+STR_ASPHALT_COUNTRY_ROAD_MENU_TEXT                :Asphaltierte Landstraßen
 
 # concrete highway text snippets
 STR_CONCRETE_HIGHWAY_TOOLBAR_CAPTION              :Bau von betonierten Autobahnen
-STR_CONCRETE_HIGHWAY_MENU_TEXT                    :Bau von betonierten Autobahnen
+STR_CONCRETE_HIGHWAY_MENU_TEXT                    :Betonierte Autobahnen
 
 # asphalt highway text snippets
 STR_ASPHALT_HIGHWAY_TOOLBAR_CAPTION               :Bau von asphaltierten Autobahnen
-STR_ASPHALT_HIGHWAY_MENU_TEXT                     :Bau von asphaltierten Autobahnen
+STR_ASPHALT_HIGHWAY_MENU_TEXT                     :Asphaltierte Autobahnen
 
 # generic, reusable text snippets
 STR_GENERIC_BUILD_WINDOW_CAPTION                  :Neues Straßenfahrzeug
