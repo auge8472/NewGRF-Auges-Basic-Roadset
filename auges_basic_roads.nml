@@ -1,0 +1,597 @@
+/**
+ */
+
+grf {
+	grfid: "HA\03\00";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESCRIPTION);
+	version: 0;
+	min_compatible_version: 0;
+}
+
+// Version and Platform check
+if (ttd_platform == PLATFORM_TTDPATCH) {
+	error(FATAL,string(STR_WRONG_PLATFORM));
+}
+
+// supported version
+if (ttd_platform != PLATFORM_OPENTTD || (openttd_version < version_openttd(1, 10, 0, 0))) {
+	error(FATAL, REQUIRES_OPENTTD, string(STR_WRONG_OPENTTD_VERSION));
+}
+
+
+// Type Tables
+// -----------
+
+roadtypetable {
+	ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY, AHWY, ASPT, ELAS, HWAY
+}
+
+// Default ground tile template (re-use as needed)
+template ground_tile(x, y) {
+	[x, y, 64, 31, -31, 0]
+}
+
+// Template for underlays; 2x straight road, 5x junctions, 4x corners, 4x slope, 4x half-tile road
+// Used for bridge surfaces also, therefore the template is split
+
+template tmpl_underlay_straight() {
+	ground_tile( 10, 10)
+	ground_tile( 80, 10)
+}
+template tmpl_underlay_junctions() {
+	ground_tile(150, 10)
+	ground_tile(220, 10)
+	ground_tile(290, 10)
+	ground_tile(360, 10)
+	ground_tile( 10, 50)
+}
+template tmpl_underlay_corners() {
+	ground_tile( 80, 50)
+	ground_tile(150, 50)
+	ground_tile(220, 50)
+	ground_tile(290, 50)
+}
+
+template tmpl_underlay_slope() {
+	[150, 170, 64, 39, -31, -8]
+	[220, 170, 64, 23, -31, 0]
+	[290, 170, 64, 23, -31, 0]
+	[360, 170, 64, 39, -31, -8]
+}
+template tmpl_underlay_half_tiles() {
+	ground_tile(360, 50)
+	ground_tile( 10, 90)
+	ground_tile( 80, 90)
+	ground_tile(150, 90)
+}
+
+template tmpl_underlay_roadtypes() {
+	tmpl_underlay_straight()
+	tmpl_underlay_junctions()
+	tmpl_underlay_corners()
+	tmpl_underlay_slope()
+	tmpl_underlay_half_tiles()
+	/* X-crossing */
+	ground_tile(0, 120)
+	/* underlay for crossings w/o tracks */
+	//ground_tile(  0, 130)
+	ground_tile( 10, 130)
+	//ground_tile(225, 130)
+	ground_tile(220, 130)
+	ground_tile(150, 130)
+	//ground_tile( 75, 130)
+	ground_tile( 80, 130)
+}
+
+spriteset(foot_path_underlay, "gfx/foot-path/foot_path_over.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(dirt_road_underlay, "gfx/dirt-road/dirt_road_over.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(dirt_road_underlay_snow, "gfx/dirt-road/dirt_road_over_snow.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(paved_town_road_underlay, "gfx/town-road-paved/town_road_stone_over.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(asphalt_town_road_underlay, "gfx/town-road-asphalt/town_road_asphalt_bare.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(paved_country_road_underlay, "gfx/country-road-paved/country_road_stone_over.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(concrete_country_road_underlay, "gfx/country-road-concrete/country_road_concrete_over.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(asphalt_country_road_underlay, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(concrete_highway_underlay, "gfx/highway-concrete/hway_concrete_over.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(asphalt_highway_underlay, "gfx/highway-asphalt/hway_asphalt_over.png") {
+	tmpl_underlay_roadtypes()
+}
+//switch based on terrain type in arctic climate
+switch(FEAT_ROADTYPES, SELF, switch_underlay_dirt, terrain_type) {
+	TILETYPE_SNOW: dirt_road_underlay_snow; 
+	default: dirt_road_underlay;
+}
+
+// overlays
+template tmpl_overlay_roadtypes() {
+	[ 10, 10, 64, 31, -31, 0]
+	[ 80, 10, 64, 31, -31, 0]
+
+	[150, 10, 64, 31, -31, 0]
+	[220, 10, 64, 31, -31, 0]
+	[290, 10, 64, 31, -31, 0]
+	[360, 10, 64, 31, -31, 0]
+	[ 10, 50, 64, 31, -31, 0]
+
+	[ 80, 50, 64, 31, -31, 0]
+	[150, 50, 64, 31, -31, 0]
+	[220, 50, 64, 31, -31, 0]
+	[290, 50, 64, 31, -31, 0]
+
+	[150, 170, 64, 39, -31, -8]
+	[220, 170, 64, 21, -31, 0]
+	[290, 170, 64, 21, -31, 0]
+	[360, 170, 64, 39, -31, -8]
+
+	[360, 50, 64, 31, -31, 0]
+	[ 10, 90, 64, 31, -31, 0]
+	[ 80, 90, 64, 31, -31, 0]
+	[150, 90, 64, 31, -31, 0]
+}
+
+spriteset(no_deco, "gfx/decorations/road_empty.png") {
+    tmpl_overlay_roadtypes()
+}
+spriteset(foot_path_overlay, "gfx/foot-path/foot_path_over.png") {
+	tmpl_overlay_roadtypes()
+}
+spriteset(dirt_road_overlay, "gfx/dirt-road/dirt_road_over.png") {
+	tmpl_overlay_roadtypes()
+}
+spriteset(paved_town_road_overlay, "gfx/town-road-paved/town_road_stone_over.png") {
+	tmpl_overlay_roadtypes()
+}
+spriteset(asphalt_town_road_overlay_0, "gfx/town-road-asphalt/town_road_asphalt_over.png") {
+	//countryside roads
+	tmpl_overlay_roadtypes()
+}
+spriteset(asphalt_town_road_overlay_1, "gfx/town-road-asphalt/town_road_asphalt_over_sub.png") {
+	//suburban roads
+	tmpl_overlay_roadtypes()
+}
+spriteset(asphalt_town_road_overlay_2, "gfx/town-road-asphalt/town_road_asphalt_over_town.png") {
+	//town streets
+	tmpl_overlay_roadtypes()
+}
+spriteset(asphalt_town_road_overlay_3, "gfx/town-road-asphalt/town_road_asphalt_over_city.png") {
+	//city roads
+	tmpl_overlay_roadtypes()
+}
+spriteset(asphalt_town_road_overlay_4, "gfx/town-road-asphalt/town_road_asphalt_over_core.png") {
+	//city center streets
+	tmpl_overlay_roadtypes()
+}
+switch(FEAT_ROADTYPES, SELF, switch_asphalt_zones, town_zone) {
+	//switch based on town zone
+	4: asphalt_town_road_overlay_4; 
+	3: asphalt_town_road_overlay_3; 
+	2: asphalt_town_road_overlay_2; 
+	1: asphalt_town_road_overlay_1; 
+	default: asphalt_town_road_overlay_0;
+}
+spriteset(paved_country_road_overlay, "gfx/country-road-paved/country_road_stone_over.png") {
+	tmpl_overlay_roadtypes()
+}
+spriteset(concrete_country_road_overlay, "gfx/country-road-concrete/country_road_concrete_over.png") {
+	tmpl_overlay_roadtypes()
+}
+spriteset(asphalt_country_road_overlay, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
+	tmpl_overlay_roadtypes()
+}
+spriteset(country_road_overlay_snow, "gfx/decorations/road_deco_snow_scattered.png") {
+	tmpl_overlay_roadtypes()
+}
+//switches for country roads based on terrain type
+switch(FEAT_ROADTYPES, SELF, switch_paved_country_road_over, terrain_type) {
+	TILETYPE_SNOW: country_road_overlay_snow;
+	default: no_deco;
+}
+switch(FEAT_ROADTYPES, SELF, switch_concrete_country_road_over, terrain_type) {
+	TILETYPE_SNOW: country_road_overlay_snow;
+	default: no_deco;
+}
+switch(FEAT_ROADTYPES, SELF, switch_asphalt_country_road_over, terrain_type) {
+	TILETYPE_SNOW: country_road_overlay_snow;
+	default: no_deco;
+}
+spriteset(concrete_highway_overlay, "gfx/highway-concrete/hway_concrete_over.png") {
+	tmpl_overlay_roadtypes()
+}
+spriteset(asphalt_highway_overlay, "gfx/highway-asphalt/hway_asphalt_over.png") {
+	tmpl_overlay_roadtypes()
+}
+
+
+// Template for depot sprites
+template tmpl_depot() {
+	[150, 218, 64, 61, -31, -30]
+	[220, 218, 64, 61, -1, -45]
+	[ 10, 218, 64, 61, -31, -30]
+	[ 80, 218, 64, 61, -61, -45]
+	[290, 218, 64, 61, -61, -45]
+	[360, 218, 64, 61, -1, -45]
+}
+spriteset(foot_path_depots, "gfx/foot-path/foot_path_over.png") {
+	tmpl_depot()
+}
+spriteset(dirt_road_depots, "gfx/dirt-road/dirt_road_over.png") {
+	tmpl_depot()
+}
+spriteset(paved_town_road_depots, "gfx/town-road-paved/town_road_stone_over.png") {
+	tmpl_depot()
+}
+spriteset(asphalt_town_road_depots, "gfx/town-road-asphalt/town_road_asphalt_bare.png") {
+	tmpl_depot()
+}
+spriteset(paved_country_road_depots, "gfx/country-road-paved/country_road_stone_over.png") {
+	tmpl_depot()
+}
+spriteset(concrete_country_road_depots, "gfx/country-road-concrete/country_road_concrete_over.png") {
+	tmpl_depot()
+}
+spriteset(asphalt_country_road_depots, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
+	tmpl_depot()
+}
+spriteset(concrete_highway_depots, "gfx/highway-concrete/hway_concrete_over.png") {
+	tmpl_depot()
+}
+spriteset(asphalt_highway_depots, "gfx/highway-asphalt/hway_asphalt_over.png") {
+	tmpl_depot()
+}
+
+
+// Bridge surface, uses the same sprites as track underlays, but in a different order
+template tmpl_bridge_straight() {
+	ground_tile( 10, 288)
+	ground_tile( 80, 288)
+}
+template tmpl_bridge_slope() {
+	[150, 288, 64, 39, -31, -8]
+	[220, 288, 64, 23, -31, 0]
+	[290, 288, 64, 23, -31, 0]
+	[360, 288, 64, 39, -31, -8]
+}
+template tmpl_bridge_surfaces() {
+	tmpl_bridge_straight()
+	tmpl_bridge_slope()
+}
+spriteset(foot_path_bridge_surfaces, "gfx/foot-path/foot_path_over.png") {
+	tmpl_bridge_surfaces()
+}
+spriteset(dirt_road_bridge_surfaces, "gfx/dirt-road/dirt_road_over.png") {
+	tmpl_bridge_surfaces()
+}
+spriteset(dirt_road_bridge_surfaces_snow, "gfx/dirt-road/dirt_road_over_snow.png") {
+    tmpl_bridge_surfaces()
+}
+spriteset(paved_town_road_bridge_surfaces, "gfx/town-road-paved/town_road_stone_over.png") {
+	tmpl_bridge_surfaces()
+}
+spriteset(asphalt_town_road_bridge_surfaces, "gfx/town-road-asphalt/town_road_asphalt_bare.png") {
+	tmpl_bridge_surfaces()
+}
+spriteset(paved_country_road_bridge_surfaces, "gfx/country-road-paved/country_road_stone_over.png") {
+	tmpl_bridge_surfaces()
+}
+spriteset(concrete_country_road_bridge_surfaces, "gfx/country-road-concrete/country_road_concrete_over.png") {
+	tmpl_bridge_surfaces()
+}
+spriteset(asphalt_country_road_bridge_surfaces, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
+	tmpl_bridge_surfaces()
+}
+spriteset(concrete_highway_bridge_surfaces, "gfx/highway-concrete/hway_concrete_over.png") {
+	tmpl_bridge_surfaces()
+}
+spriteset(asphalt_highway_bridge_surfaces, "gfx/highway-asphalt/hway_asphalt_over.png") {
+	tmpl_bridge_surfaces()
+}
+//switch based on terrain type
+switch(FEAT_ROADTYPES, SELF, switch_bridge_surfaces_dirt, terrain_type) {
+	TILETYPE_SNOW: dirt_road_bridge_surfaces_snow; 
+	default: dirt_road_bridge_surfaces;
+}
+
+// Roadstop sprites:
+template tmpl_underlay_roadstop() {
+	ground_tile(220, 90)
+	ground_tile(290, 90)
+	ground_tile(360, 90)
+	ground_tile(10, 130)
+}
+spriteset(foot_path_roadstops, "gfx/foot-path/foot_path_over.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(dirt_road_roadstops, "gfx/dirt-road/dirt_road_over.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(dirt_road_roadstops_snow, "gfx/dirt-road/dirt_road_over_snow.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(paved_town_road_roadstops, "gfx/town-road-paved/town_road_stone_over.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(asphalt_town_road_roadstops, "gfx/town-road-asphalt/town_road_asphalt_bare.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(paved_country_road_roadstops, "gfx/country-road-paved/country_road_stone_over.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(concrete_country_road_roadstops, "gfx/country-road-concrete/country_road_concrete_over.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(asphalt_country_road_roadstops, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(concrete_highway_roadstops, "gfx/highway-concrete/hway_concrete_over.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(asphalt_highway_roadstops, "gfx/highway-asphalt/hway_asphalt_over.png") {
+	tmpl_underlay_roadstop()
+}
+//switch based on terrain type
+switch(FEAT_ROADTYPES, SELF, switch_roadstops_dirt, terrain_type) {
+	TILETYPE_SNOW: dirt_road_roadstops_snow; 
+	default: dirt_road_roadstops;
+}
+
+item(FEAT_ROADTYPES, default_town_road) {
+	property {
+		label: "ROAD";
+		roadtype_flags: bitmask(ROADTYPE_FLAG_HIDDEN);
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "PETR", "ATRD", "AETR", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+	}
+}
+item(FEAT_ROADTYPES, foot_path) {
+	property {
+		name: string(STR_STREET_NAME_FOOTPATH);
+		label: "FOOT";
+		speed_limit: 4 km/h;
+		introduction_date: date(0000,01,01);
+		construction_cost: 1;
+		maintenance_cost: 2;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["FOOT"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_LEVEL_CROSSING);
+		toolbar_caption: string(STR_FOOT_PATH_TOOLBAR_CAPTION);
+		menu_text: string(STR_FOOT_PATH_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 1;
+	}
+	graphics {
+		underlay: dirt_road_underlay;
+		//track_overlay: switch_asphalt_zones;
+		depots: dirt_road_depots;
+		bridge_surfaces: dirt_road_bridge_surfaces;
+		roadstops: dirt_road_roadstops;
+	}
+}
+item(FEAT_ROADTYPES, dirt_road) {
+	property {
+		name: string(STR_STREET_NAME_FARM_PATH);
+		label: "DIRT";
+		speed_limit: 30 km/h;
+		introduction_date: date(0000,01,01);
+		construction_cost: 3;
+		maintenance_cost: 5;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES);
+		toolbar_caption: string(STR_FARM_PATH_TOOLBAR_CAPTION);
+		menu_text: string(STR_FARM_PATH_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 3;
+	}
+	graphics {
+		underlay: switch_underlay_dirt;
+		//track_overlay: switch_asphalt_zones;
+		depots: dirt_road_depots;
+		bridge_surfaces: switch_bridge_surfaces_dirt;
+		roadstops: switch_roadstops_dirt;
+	}
+}
+item(FEAT_ROADTYPES, paved_town_road) {
+	property {
+		name: string(STR_STREET_NAME_PAVED_TOWN_ROAD);
+		label: "PTRD";
+		speed_limit: 45 km/h;
+		introduction_date: date(0000,01,01);
+		construction_cost: 8;
+		maintenance_cost: 10;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "PETR", "ATRD", "AETR", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		alternative_roadtype_list: ["ROAD"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_TOWN_BUILD);
+		toolbar_caption: string(STR_PAVED_TOWN_ROAD_TOOLBAR_CAPTION);
+		menu_text: string(STR_PAVED_TOWN_ROAD_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 4;
+	}
+	graphics {
+		underlay: paved_town_road_underlay;
+		//track_overlay: paved_town_road_overlay;
+		depots: paved_town_road_depots;
+		bridge_surfaces: paved_town_road_bridge_surfaces;
+		roadstops: paved_town_road_roadstops;
+	}
+}
+item(FEAT_ROADTYPES, asphalt_town_road) {
+	property {
+		name: string(STR_STREET_NAME_ASPHALT_TOWN_ROAD);
+		label: "ATRD";
+		speed_limit: 55 km/h;
+		introduction_date: date(1965,01,01);
+		construction_cost: 16;
+		maintenance_cost: 24;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "PETR", "ATRD", "AETR", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_TOWN_BUILD);
+		toolbar_caption: string(STR_ASPHALT_TOWN_ROAD_TOOLBAR_CAPTION);
+		menu_text: string(STR_ASPHALT_TOWN_ROAD_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 5;
+	}
+	graphics {
+		underlay: asphalt_town_road_underlay;
+		track_overlay: switch_asphalt_zones;
+		depots: asphalt_town_road_depots;
+		bridge_surfaces: asphalt_town_road_bridge_surfaces;
+		roadstops: asphalt_town_road_roadstops;
+	}
+}
+item(FEAT_ROADTYPES, paved_country_road) {
+	property {
+		name: string(STR_STREET_NAME_PAVED_COUNTRY_ROAD);
+		label: "PCRD";
+		speed_limit: 60 km/h;
+		introduction_date: date(0000,01,01);
+		construction_cost: 12;
+		maintenance_cost: 16;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES);
+		toolbar_caption: string(STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION);
+		menu_text: string(STR_PAVED_COUNTRY_ROAD_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 6;
+	}
+	graphics {
+		underlay: paved_country_road_underlay;
+		track_overlay: switch_paved_country_road_over;
+		depots: paved_country_road_depots;
+		bridge_surfaces: paved_country_road_bridge_surfaces;
+		roadstops: paved_country_road_roadstops;
+	}
+}
+item(FEAT_ROADTYPES, concrete_country_road) {
+	property {
+		name: string(STR_STREET_NAME_CONCRETE_COUNTRY_ROAD);
+		label: "CCRD";
+		speed_limit: 75 km/h;
+		introduction_date: date(1940,01,01);
+		construction_cost: 16;
+		maintenance_cost: 20;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES);
+		toolbar_caption: string(STR_CONCRETE_COUNTRY_ROAD_TOOLBAR_CAPTION);
+		menu_text: string(STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 7;
+	}
+	graphics {
+		underlay: concrete_country_road_underlay;
+		track_overlay: switch_concrete_country_road_over;
+		depots: concrete_country_road_depots;
+		bridge_surfaces: concrete_country_road_bridge_surfaces;
+		roadstops: concrete_country_road_roadstops;
+	}
+}
+item(FEAT_ROADTYPES, asphalt_country_road) {
+	property {
+		name: string(STR_STREET_NAME_ASPHALT_COUNTRY_ROAD);
+		label: "ACRD";
+		speed_limit: 90 km/h;
+		introduction_date: date(1970,01,01);
+		construction_cost: 20;
+		maintenance_cost: 28;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES);
+		toolbar_caption: string(STR_ASPHALT_COUNTRY_ROAD_TOOLBAR_CAPTION);
+		menu_text: string(STR_ASPHALT_COUNTRY_ROAD_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 8;
+	}
+	graphics {
+		underlay: asphalt_country_road_underlay;
+		track_overlay: switch_asphalt_country_road_over;
+		depots: asphalt_country_road_depots;
+		bridge_surfaces: asphalt_country_road_bridge_surfaces;
+		roadstops: asphalt_country_road_roadstops;
+	}
+}
+
+item(FEAT_ROADTYPES, concrete_highway) {
+	property {
+		name: string(STR_STREET_NAME_CONCRETE_HIGHWAY);
+		label: "CHWY";
+		speed_limit: 90 km/h;
+		introduction_date: date(1930,01,01);
+		construction_cost: 24;
+		maintenance_cost: 32;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES, ROADTYPE_FLAG_NO_LEVEL_CROSSING);
+		toolbar_caption: string(STR_CONCRETE_HIGHWAY_TOOLBAR_CAPTION);
+		menu_text: string(STR_CONCRETE_HIGHWAY_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 9;
+	}
+	graphics {
+		underlay: concrete_highway_underlay;
+		//track_overlay: switch_asphalt_zones;
+		depots: concrete_highway_depots;
+		bridge_surfaces: concrete_highway_bridge_surfaces;
+		roadstops: concrete_highway_roadstops;
+	}
+}
+item(FEAT_ROADTYPES, asphalt_highway) {
+	property {
+		name: string(STR_STREET_NAME_ASPHALT_HIGHWAY);
+		label: "AHWY";
+		speed_limit: 120 km/h;
+		introduction_date: date(1975,01,01);
+		construction_cost: 28;
+		maintenance_cost: 38;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES, ROADTYPE_FLAG_NO_LEVEL_CROSSING);
+		toolbar_caption: string(STR_ASPHALT_HIGHWAY_TOOLBAR_CAPTION);
+		menu_text: string(STR_ASPHALT_HIGHWAY_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 10;
+	}
+	graphics {
+		underlay: asphalt_highway_underlay;
+		//track_overlay: switch_asphalt_zones;
+		depots: asphalt_highway_depots;
+		bridge_surfaces: asphalt_highway_bridge_surfaces;
+		roadstops: asphalt_highway_roadstops;
+	}
+}
