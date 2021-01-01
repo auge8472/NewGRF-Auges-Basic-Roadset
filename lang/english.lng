@@ -38,6 +38,10 @@ STR_STREET_NAME_TRAM_COUNTRY_NEW_ELECTRIFIED      :Moderne electrified interurba
 STR_FOOT_PATH_TOOLBAR_CAPTION                     :Bau von Fußwegen
 STR_FOOT_PATH_MENU_TEXT                           :Bau von Fußwegen
 
+# precinct text snippets
+STR_PRECINCT_TOOLBAR_CAPTION                      :Precinct Construction
+STR_PRECINCT_MENU_TEXT                            :Precinct Construction
+
 # farm road text snippets
 STR_FARM_PATH_TOOLBAR_CAPTION                     :Farm Path Construction
 STR_FARM_PATH_MENU_TEXT                           :Farm Path Construction
