@@ -11,7 +11,7 @@ grf {
 
 // Version and Platform check
 if (ttd_platform == PLATFORM_TTDPATCH) {
-	error(FATAL,string(STR_WRONG_PLATFORM));
+	error(FATAL, string(STR_WRONG_PLATFORM));
 }
 
 // supported version
