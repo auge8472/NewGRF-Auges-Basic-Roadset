@@ -87,6 +87,9 @@ template tmpl_underlay_roadtypes() {
 spriteset(foot_path_underlay, "gfx/foot-path/foot_path_over.png") {
 	tmpl_underlay_roadtypes()
 }
+spriteset(foot_path_underlay_snow, "gfx/foot-path/foot_path_over_snow.png") {
+	tmpl_underlay_roadtypes()
+}
 spriteset(dirt_road_underlay, "gfx/dirt-road/dirt_road_over.png") {
 	tmpl_underlay_roadtypes()
 }
@@ -115,6 +118,10 @@ spriteset(asphalt_highway_underlay, "gfx/highway-asphalt/hway_asphalt_over.png")
 	tmpl_underlay_roadtypes()
 }
 //switch based on terrain type in arctic climate
+switch(FEAT_ROADTYPES, SELF, switch_underlay_foot, terrain_type) {
+	TILETYPE_SNOW: foot_path_underlay_snow;
+	default: foot_path_underlay;
+}
 switch(FEAT_ROADTYPES, SELF, switch_underlay_dirt, terrain_type) {
 	TILETYPE_SNOW: dirt_road_underlay_snow; 
 	default: dirt_road_underlay;
@@ -276,6 +283,9 @@ template tmpl_bridge_surfaces() {
 spriteset(foot_path_bridge_surfaces, "gfx/foot-path/foot_path_over.png") {
 	tmpl_bridge_surfaces()
 }
+spriteset(foot_path_bridge_surfaces_snow, "gfx/foot-path/foot_path_over_snow.png") {
+	tmpl_bridge_surfaces()
+}
 spriteset(dirt_road_bridge_surfaces, "gfx/dirt-road/dirt_road_over.png") {
 	tmpl_bridge_surfaces()
 }
@@ -304,6 +314,10 @@ spriteset(asphalt_highway_bridge_surfaces, "gfx/highway-asphalt/hway_asphalt_ove
 	tmpl_bridge_surfaces()
 }
 //switch based on terrain type
+switch(FEAT_ROADTYPES, SELF, switch_bridge_surfaces_foot_path, terrain_type) {
+	TILETYPE_SNOW: foot_path_bridge_surfaces_snow; 
+	default: foot_path_bridge_surfaces;
+}
 switch(FEAT_ROADTYPES, SELF, switch_bridge_surfaces_dirt, terrain_type) {
 	TILETYPE_SNOW: dirt_road_bridge_surfaces_snow; 
 	default: dirt_road_bridge_surfaces;
@@ -317,6 +331,9 @@ template tmpl_underlay_roadstop() {
 	ground_tile(10, 130)
 }
 spriteset(foot_path_roadstops, "gfx/foot-path/foot_path_over.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(foot_path_roadstops_snow, "gfx/foot-path/foot_path_over_snow.png") {
 	tmpl_underlay_roadstop()
 }
 spriteset(dirt_road_roadstops, "gfx/dirt-road/dirt_road_over.png") {
@@ -347,6 +364,10 @@ spriteset(asphalt_highway_roadstops, "gfx/highway-asphalt/hway_asphalt_over.png"
 	tmpl_underlay_roadstop()
 }
 //switch based on terrain type
+switch(FEAT_ROADTYPES, SELF, switch_roadstops_foot_path, terrain_type) {
+	TILETYPE_SNOW: foot_path_roadstops_snow; 
+	default: foot_path_roadstops;
+}
 switch(FEAT_ROADTYPES, SELF, switch_roadstops_dirt, terrain_type) {
 	TILETYPE_SNOW: dirt_road_roadstops_snow; 
 	default: dirt_road_roadstops;
@@ -378,11 +399,11 @@ item(FEAT_ROADTYPES, foot_path) {
 		sort_order: 1;
 	}
 	graphics {
-		underlay: dirt_road_underlay;
-		//track_overlay: switch_asphalt_zones;
-		depots: dirt_road_depots;
-		bridge_surfaces: dirt_road_bridge_surfaces;
-		roadstops: dirt_road_roadstops;
+		underlay: switch_underlay_foot;
+		//track_overlay: foot_path_overlay;
+		depots: foot_path_depots;
+		bridge_surfaces: switch_bridge_surfaces_foot_path;
+		roadstops: switch_roadstops_foot_path;
 	}
 }
 item(FEAT_ROADTYPES, dirt_road) {
