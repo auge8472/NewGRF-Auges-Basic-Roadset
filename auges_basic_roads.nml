@@ -15,8 +15,8 @@ if (ttd_platform == PLATFORM_TTDPATCH) {
 }
 
 // supported version
-if (ttd_platform != PLATFORM_OPENTTD || (openttd_version < version_openttd(1, 10, 0, 0))) {
-	error(FATAL, REQUIRES_OPENTTD, string(STR_WRONG_OPENTTD_VERSION));
+if (openttd_version < version_openttd(1, 10, 0, 0)) {
+	error(FATAL, string(STR_WRONG_OPENTTD_VERSION));
 }
 
 
