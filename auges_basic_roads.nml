@@ -87,15 +87,15 @@ template tmpl_underlay_roadtypes() {
 	tmpl_underlay_slope()
 	tmpl_underlay_half_tiles()
 	/* X-crossing */
-	ground_tile(0, 120)
+	///ground_tile(0, 120)
 	/* underlay for crossings w/o tracks */
 	//ground_tile(  0, 130)
-	ground_tile( 10, 130)
+	///ground_tile( 10, 130)
 	//ground_tile(225, 130)
-	ground_tile(220, 130)
-	ground_tile(150, 130)
+	///ground_tile(220, 130)
+	///ground_tile(150, 130)
 	//ground_tile( 75, 130)
-	ground_tile( 80, 130)
+	///ground_tile( 80, 130)
 }
 
 spriteset(foot_path_underlay, "gfx/foot-path/foot_path_over.png") {
