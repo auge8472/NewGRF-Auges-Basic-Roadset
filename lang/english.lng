@@ -33,6 +33,13 @@ STR_STREET_NAME_TRAM_COUNTRY_OLD_NON_ELECTRIFIED  :Old nonelectrified interurban
 STR_STREET_NAME_TRAM_COUNTRY_OLD_ELECTRIFIED      :Old electrified interurban tram
 STR_STREET_NAME_TRAM_COUNTRY_NEW_ELECTRIFIED      :Moderne electrified interurban tram
 
+# parameter strings
+
+# road style parameter
+STR_PARAM_ROAD_STYLE_NAME                         :Select the road style
+STR_PARAM_ROAD_STYLE_DESC                         :Select one of the road styles to adapt the visual style to a specific region.
+STR_PARAM_ROAD_STYLE_1                            :European Roads
+STR_PARAM_ROAD_STYLE_2                            :North American Roads
 
 # foot path text snippets
 STR_FOOT_PATH_TOOLBAR_CAPTION                     :Foot Path Construction
