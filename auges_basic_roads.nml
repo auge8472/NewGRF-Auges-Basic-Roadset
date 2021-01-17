@@ -378,8 +378,15 @@ spriteset(concrete_country_road_bridge_surfaces, "gfx/country-road-concrete/coun
 spriteset(asphalt_country_road_bridge_surfaces, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
 	tmpl_bridge_surfaces()
 }
-spriteset(concrete_highway_bridge_surfaces, "gfx/highway-concrete/hway_concrete_under.png") {
+spriteset(concrete_highway_europe_bridge_surfaces, "gfx/highway-concrete/hway_concrete_europe_over.png") {
 	tmpl_bridge_surfaces()
+}
+spriteset(concrete_highway_northamerica_bridge_surfaces, "gfx/highway-concrete/hway_concrete_northamerica_over.png") {
+	tmpl_bridge_surfaces()
+}
+switch(FEAT_ROADTYPES, SELF, concrete_highway_bridge_surfaces, param_road_style) {
+	1: concrete_highway_northamerica_bridge_surfaces;
+	default: concrete_highway_europe_bridge_surfaces;
 }
 spriteset(asphalt_highway_northamerica_bridge_surfaces, "gfx/highway-asphalt/hway_asphalt_northamerica_over.png") {
 	tmpl_bridge_surfaces()
