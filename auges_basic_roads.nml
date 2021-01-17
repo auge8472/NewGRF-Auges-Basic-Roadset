@@ -427,6 +427,61 @@ switch(FEAT_ROADTYPES, SELF, switch_roadstops_dirt, terrain_type) {
 	default: dirt_road_roadstops;
 }
 
+// catenary spritesets and definitions, trolley wires and marker posts
+// regular trolley wire sprites 
+template tmpl_wire_normal() {
+	[ 10, 10, 64, 47, -31, -16]
+	[ 80, 10, 64, 47, -31, -16]
+
+	[150, 10, 64, 47, -31, -16]
+	[220, 10, 64, 47, -31, -16]
+	[290, 10, 64, 47, -31, -16]
+	[360, 10, 64, 47, -31, -16]
+	[ 10, 66, 64, 47, -31, -16]
+
+	[ 80, 66, 64, 47, -31, -16]
+	[150, 66, 64, 47, -31, -16]
+	[220, 66, 64, 47, -31, -16]
+	[290, 66, 64, 31, -31, -16]
+
+	[150, 234, 64, 55, -31, -24]
+	[220, 234, 64, 39, -31, -16]
+	[290, 234, 64, 39, -31, -16]
+	[360, 234, 64, 55, -31, -24]
+
+	[360,  66, 64, 31, -31, -16]
+	[ 10, 122, 64, 31, -31, -16]
+	[ 80, 122, 64, 31, -31, -16]
+	[150, 122, 64, 31, -31, -16]
+
+	[220, 122, 64, 31, -31, -16]
+	[290, 122, 64, 31, -31, -16]
+	[360, 122, 64, 31, -31, -16]
+	[ 10, 178, 64, 31, -31, -16]
+}
+//trolley wire for bridges
+template tmpl_wire_bridge() {
+	[ 10, 298, 64, 47, -31, -16]
+	[ 80, 298, 64, 47, -31, -16]
+	[150, 298, 64, 55, -31, -24]
+	[220, 298, 64, 39, -31, -16]
+	[290, 298, 64, 39, -31, -16]
+	[360, 298, 64, 55, -31, -24]
+}
+//combine the two to allow bridge to use different png - doesn't work :(
+template tmpl_wire_roadtypes() {
+	tmpl_wire_normal()
+	tmpl_wire_bridge()
+}
+
+// define
+spriteset(country_road_markers_rear, "gfx/decorations/country_marks_rear.png") {
+	tmpl_wire_roadtypes()
+}
+spriteset(country_road_markers_front, "gfx/decorations/country_marks_front.png") {
+	tmpl_wire_roadtypes()
+}
+
 item(FEAT_ROADTYPES, default_town_road) {
 	property {
 		label: "ROAD";
@@ -549,7 +604,7 @@ item(FEAT_ROADTYPES, paved_country_road) {
 		maintenance_cost: 16;
 		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
 		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
-		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES);
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES, ROADTYPE_FLAG_CATENARY);
 		toolbar_caption: string(STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION);
 		menu_text: string(STR_PAVED_COUNTRY_ROAD_MENU_TEXT);
 		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
@@ -563,6 +618,8 @@ item(FEAT_ROADTYPES, paved_country_road) {
 		depots: paved_country_road_depots;
 		bridge_surfaces: paved_country_road_bridge_surfaces;
 		roadstops: paved_country_road_roadstops;
+		catenary_back: country_road_markers_rear;
+		catenary_front: country_road_markers_front;
 	}
 }
 item(FEAT_ROADTYPES, concrete_country_road) {
@@ -575,7 +632,7 @@ item(FEAT_ROADTYPES, concrete_country_road) {
 		maintenance_cost: 20;
 		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
 		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
-		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES);
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES, ROADTYPE_FLAG_CATENARY);
 		toolbar_caption: string(STR_CONCRETE_COUNTRY_ROAD_TOOLBAR_CAPTION);
 		menu_text: string(STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT);
 		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
@@ -589,6 +646,8 @@ item(FEAT_ROADTYPES, concrete_country_road) {
 		depots: concrete_country_road_depots;
 		bridge_surfaces: concrete_country_road_bridge_surfaces;
 		roadstops: concrete_country_road_roadstops;
+		catenary_back: country_road_markers_rear;
+		catenary_front: country_road_markers_front;
 	}
 }
 item(FEAT_ROADTYPES, asphalt_country_road) {
@@ -601,7 +660,7 @@ item(FEAT_ROADTYPES, asphalt_country_road) {
 		maintenance_cost: 28;
 		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
 		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
-		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES);
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES, ROADTYPE_FLAG_CATENARY);
 		toolbar_caption: string(STR_ASPHALT_COUNTRY_ROAD_TOOLBAR_CAPTION);
 		menu_text: string(STR_ASPHALT_COUNTRY_ROAD_MENU_TEXT);
 		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
@@ -615,6 +674,8 @@ item(FEAT_ROADTYPES, asphalt_country_road) {
 		depots: asphalt_country_road_depots;
 		bridge_surfaces: asphalt_country_road_bridge_surfaces;
 		roadstops: asphalt_country_road_roadstops;
+		catenary_back: country_road_markers_rear;
+		catenary_front: country_road_markers_front;
 	}
 }
 
