@@ -109,6 +109,9 @@ switch(FEAT_ROADTYPES, SELF, switch_underlay_foot, terrain_type) {
 	TILETYPE_SNOW: foot_path_underlay_snow;
 	default: foot_path_underlay;
 }
+spriteset(precinct_underlay, "gfx/pedestrian-zone/pedestrian_zone.png") {
+	tmpl_underlay_roadtypes()
+}
 spriteset(dirt_road_underlay, "gfx/dirt-road/dirt_road_over.png") {
 	tmpl_underlay_roadtypes()
 }
@@ -180,6 +183,9 @@ spriteset(no_deco, "gfx/decorations/road_empty.png") {
 	tmpl_overlay_roadtypes()
 }
 spriteset(foot_path_overlay, "gfx/foot-path/foot_path_over.png") {
+	tmpl_overlay_roadtypes()
+}
+spriteset(precinct_overlay, "gfx/pedestrian-zone/pedestrian_zone.png") {
 	tmpl_overlay_roadtypes()
 }
 spriteset(dirt_road_overlay, "gfx/dirt-road/dirt_road_over.png") {
@@ -284,6 +290,9 @@ template tmpl_depot() {
 spriteset(foot_path_depots, "gfx/foot-path/foot_path_over.png") {
 	tmpl_depot()
 }
+spriteset(precinct_depots, "gfx/pedestrian-zone/pedestrian_zone.png") {
+	tmpl_depot()
+}
 spriteset(dirt_road_depots, "gfx/dirt-road/dirt_road_over.png") {
 	tmpl_depot()
 }
@@ -336,6 +345,8 @@ switch(FEAT_ROADTYPES, SELF, switch_bridge_surfaces_foot_path, terrain_type) {
 	TILETYPE_SNOW: foot_path_bridge_surfaces_snow; 
 	default: foot_path_bridge_surfaces;
 }
+spriteset(precinct_bridge_surfaces, "gfx/pedestrian-zone/pedestrian_zone.png") {
+	tmpl_bridge_surfaces()
 }
 spriteset(dirt_road_bridge_surfaces, "gfx/dirt-road/dirt_road_over.png") {
 	tmpl_bridge_surfaces()
@@ -388,6 +399,9 @@ spriteset(foot_path_roadstops, "gfx/foot-path/foot_path_over.png") {
 	tmpl_underlay_roadstop()
 }
 spriteset(foot_path_roadstops_snow, "gfx/foot-path/foot_path_over_snow.png") {
+	tmpl_underlay_roadstop()
+}
+spriteset(precinct_roadstops, "gfx/pedestrian-zone/pedestrian_zone.png") {
 	tmpl_underlay_roadstop()
 }
 spriteset(dirt_road_roadstops, "gfx/dirt-road/dirt_road_over.png") {
@@ -513,6 +527,32 @@ item(FEAT_ROADTYPES, foot_path) {
 		depots: foot_path_depots;
 		bridge_surfaces: switch_bridge_surfaces_foot_path;
 		roadstops: switch_roadstops_foot_path;
+	}
+}
+item(FEAT_ROADTYPES, precinct) {
+	property {
+		name: string(STR_STREET_NAME_PRECINCT);
+		label: "PEDZ";
+		speed_limit: 4 km/h;
+		introduction_date: date(1960,01,01);
+		construction_cost: 2;
+		maintenance_cost: 3;
+		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
+		powered_roadtype_list: ["FOOT", "PEDZ"];
+		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_LEVEL_CROSSING);
+		toolbar_caption: string(STR_PRECINCT_TOOLBAR_CAPTION);
+		menu_text: string(STR_PRECINCT_MENU_TEXT);
+		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
+		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
+		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
+		sort_order: 2;
+	}
+	graphics {
+		underlay: precinct_underlay;
+		//track_overlay: precinct_overlay;
+		depots: precinct_depots;
+		bridge_surfaces: precinct_bridge_surfaces;
+		roadstops: precinct_roadstops;
 	}
 }
 item(FEAT_ROADTYPES, dirt_road) {
