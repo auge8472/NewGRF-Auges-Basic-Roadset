@@ -148,14 +148,15 @@ switch (FEAT_ROADTYPES, SELF, concrete_highway_underlay, param_road_style) {
 	1:concrete_highway_northamerica_underlay;
 	default:concrete_highway_europe_underlay;
 }
+spriteset(asphalt_highway_northamerica_underlay, "gfx/highway-asphalt/hway_asphalt_northamerica_over.png") {
 	tmpl_underlay_roadtypes()
 }
-spriteset(asphalt_highway_underlay_europe, "gfx/highway-asphalt/hway_asphalt_europe_over.png") {
+spriteset(asphalt_highway_europe_underlay, "gfx/highway-asphalt/hway_asphalt_europe_over.png") {
 	tmpl_underlay_roadtypes()
 }
 switch (FEAT_ROADTYPES, SELF, asphalt_highway_underlay, param_road_style) {
-	1:asphalt_highway_underlay_northamerica;
-	default:asphalt_highway_underlay_europe;
+	1:asphalt_highway_northamerica_underlay;
+	default:asphalt_highway_europe_underlay;
 }
 
 // overlays
