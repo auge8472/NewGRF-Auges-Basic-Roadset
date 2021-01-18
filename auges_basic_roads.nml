@@ -228,13 +228,29 @@ switch(FEAT_ROADTYPES, SELF, switch_asphalt_zones_northamerica, town_zone) {
 	1: asphalt_town_road_northamerica_overlay_1;
 	default: asphalt_town_road_northamerica_overlay_0;
 }
-spriteset(asphalt_town_road_europe_overlay_0, "gfx/town-road-asphalt/town_road_asphalt_europe_over.png") {
+spriteset(asphalt_town_road_europe_rhd_overlay_0, "gfx/town-road-asphalt/town_road_asphalt_europe_rhd_over.png") {
 	//countryside roads
 	tmpl_overlay_roadtypes()
 }
-spriteset(asphalt_town_road_europe_overlay_1, "gfx/town-road-asphalt/town_road_asphalt_europe_over_sub.png") {
+spriteset(asphalt_town_road_europe_lhd_overlay_0, "gfx/town-road-asphalt/town_road_asphalt_europe_lhd_over.png") {
+	//countryside roads
+	tmpl_overlay_roadtypes()
+}
+switch (FEAT_ROADTYPES, SELF, asphalt_town_road_europe_overlay_0, traffic_side) {
+	TRAFFIC_SIDE_RIGHT: asphalt_town_road_europe_rhd_overlay_0;
+	asphalt_town_road_europe_lhd_overlay_0;
+}
+spriteset(asphalt_town_road_europe_rhd_overlay_1, "gfx/town-road-asphalt/town_road_asphalt_europe_rhd_over_sub.png") {
 	//suburban roads
 	tmpl_overlay_roadtypes()
+}
+spriteset(asphalt_town_road_europe_lhd_overlay_1, "gfx/town-road-asphalt/town_road_asphalt_europe_lhd_over_sub.png") {
+	//suburban roads
+	tmpl_overlay_roadtypes()
+}
+switch (FEAT_ROADTYPES, SELF, asphalt_town_road_europe_overlay_1, traffic_side) {
+	TRAFFIC_SIDE_RIGHT: asphalt_town_road_europe_rhd_overlay_1;
+	asphalt_town_road_europe_lhd_overlay_1;
 }
 spriteset(asphalt_town_road_europe_overlay_2, "gfx/town-road-asphalt/town_road_asphalt_europe_over_town.png") {
 	//town streets
