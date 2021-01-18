@@ -22,8 +22,8 @@ STR_STREET_NAME_INDUSTRY                          :Industry road
 STR_STREET_NAME_PAVED_COUNTRY_ROAD                :Set paved country road
 STR_STREET_NAME_CONCRETE_COUNTRY_ROAD             :Contrete slab country road
 STR_STREET_NAME_ASPHALT_COUNTRY_ROAD              :Asphalt country road
-STR_STREET_NAME_CONCRETE_HIGHWAY                  :Concrete highway
-STR_STREET_NAME_ASPHALT_HIGHWAY                   :Asphalt highway
+STR_STREET_NAME_CONCRETE_HIGHWAY                  :Concrete motorway
+STR_STREET_NAME_ASPHALT_HIGHWAY                   :Asphalt motorway
 
 # tramway names
 STR_STREET_NAME_TRAM_TOWN_OLD_NON_ELECTRIFIED     :Old nonelectrified town tram
