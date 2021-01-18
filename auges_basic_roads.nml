@@ -340,7 +340,7 @@ spriteset(concrete_country_road_depots, "gfx/country-road-concrete/country_road_
 spriteset(asphalt_country_road_depots, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
 	tmpl_depot()
 }
-spriteset(concrete_highway_depots, "gfx/highway-concrete/hway_concrete_under.png") {
+spriteset(concrete_highway_depots, "gfx/highway-concrete/hway_concrete_europe_under.png") {
 	tmpl_depot()
 }
 spriteset(asphalt_highway_depots, "gfx/highway-asphalt/hway_asphalt_europe_over.png") {
@@ -403,10 +403,10 @@ spriteset(concrete_country_road_bridge_surfaces, "gfx/country-road-concrete/coun
 spriteset(asphalt_country_road_bridge_surfaces, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
 	tmpl_bridge_surfaces()
 }
-spriteset(concrete_highway_europe_bridge_surfaces, "gfx/highway-concrete/hway_concrete_europe_over.png") {
+spriteset(concrete_highway_europe_bridge_surfaces, "gfx/highway-concrete/hway_concrete_europe_under.png") {
 	tmpl_bridge_surfaces()
 }
-spriteset(concrete_highway_northamerica_bridge_surfaces, "gfx/highway-concrete/hway_concrete_northamerica_over.png") {
+spriteset(concrete_highway_northamerica_bridge_surfaces, "gfx/highway-concrete/hway_concrete_northamerica_under.png") {
 	tmpl_bridge_surfaces()
 }
 switch(FEAT_ROADTYPES, SELF, concrete_highway_bridge_surfaces, param_road_style) {
@@ -461,7 +461,7 @@ spriteset(concrete_country_road_roadstops, "gfx/country-road-concrete/country_ro
 spriteset(asphalt_country_road_roadstops, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
 	tmpl_underlay_roadstop()
 }
-spriteset(concrete_highway_roadstops, "gfx/highway-concrete/hway_concrete_under.png") {
+spriteset(concrete_highway_roadstops, "gfx/highway-concrete/hway_concrete_europe_under.png") {
 	tmpl_underlay_roadstop()
 }
 spriteset(asphalt_highway_roadstops, "gfx/highway-asphalt/hway_asphalt_europe_over.png") {
