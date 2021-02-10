@@ -198,8 +198,45 @@ spriteset(precinct_overlay, "gfx/pedestrian-zone/pedestrian_zone.png") {
 spriteset(dirt_road_overlay, "gfx/dirt-road/dirt_road_over.png") {
 	tmpl_overlay_roadtypes()
 }
-spriteset(paved_town_road_overlay, "gfx/town-road-paved/town_road_stone_over.png") {
+spriteset(paved_town_road_rhd_overlay_0, "gfx/town-road-paved/town_road_paved_rhd_over.png") {
+	//countryside roads
 	tmpl_overlay_roadtypes()
+}
+spriteset(paved_town_road_lhd_overlay_0, "gfx/town-road-paved/town_road_paved_lhd_over.png") {
+	//countryside roads
+	tmpl_overlay_roadtypes()
+}
+switch (FEAT_ROADTYPES, SELF, paved_town_road_overlay_0, traffic_side) {
+	TRAFFIC_SIDE_RIGHT: paved_town_road_rhd_overlay_0;
+	paved_town_road_lhd_overlay_0;
+}
+spriteset(paved_town_road_rhd_overlay_1, "gfx/town-road-paved/town_road_paved_rhd_over_sub.png") {
+	//suburban roads
+	tmpl_overlay_roadtypes()
+}
+spriteset(paved_town_road_lhd_overlay_1, "gfx/town-road-paved/town_road_paved_lhd_over_sub.png") {
+	//suburban roads
+	tmpl_overlay_roadtypes()
+}
+switch (FEAT_ROADTYPES, SELF, paved_town_road_overlay_1, traffic_side) {
+	TRAFFIC_SIDE_RIGHT: paved_town_road_rhd_overlay_1;
+	paved_town_road_lhd_overlay_1;
+}
+spriteset(paved_town_road_overlay_3, "gfx/town-road-paved/town_road_paved_bth_over_city.png") {
+	//city roads
+	tmpl_overlay_roadtypes()
+}
+spriteset(paved_town_road_overlay_4, "gfx/town-road-paved/town_road_paved_bth_over_core.png") {
+	//city center streets
+	tmpl_overlay_roadtypes()
+}
+switch(FEAT_ROADTYPES, SELF, paved_town_road_overlay, town_zone) {
+	//switch based on town zone
+	4: paved_town_road_overlay_4;
+	3: paved_town_road_overlay_3;
+	2: paved_town_road_overlay_3;
+	1: paved_town_road_overlay_1;
+	default: paved_town_road_overlay_0;
 }
 spriteset(asphalt_town_road_northamerica_rhd_overlay_0, "gfx/town-road-asphalt/town_road_asphalt_northamerica_rhd_over.png") {
 	//countryside roads
@@ -654,7 +691,7 @@ item(FEAT_ROADTYPES, paved_town_road) {
 	}
 	graphics {
 		underlay: paved_town_road_underlay;
-		//track_overlay: paved_town_road_overlay;
+		track_overlay: paved_town_road_overlay;
 		depots: paved_town_road_depots;
 		bridge_surfaces: paved_town_road_bridge_surfaces;
 		roadstops: paved_town_road_roadstops;
