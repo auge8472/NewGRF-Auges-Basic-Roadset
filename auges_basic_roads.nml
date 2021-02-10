@@ -333,6 +333,9 @@ switch(FEAT_ROADTYPES, SELF, switch_asphalt_zones, param_road_style) {
 spriteset(country_road_overlay_snow, "gfx/decorations/road_deco_snow_scattered.png") {
 	tmpl_overlay_roadtypes()
 }
+spriteset(country_road_asphalt_overlay_snow, "gfx/decorations/road_deco_snow_ca_scattered.png") {
+	tmpl_overlay_roadtypes()
+}
 //switches for country roads based on terrain type
 switch(FEAT_ROADTYPES, SELF, switch_paved_country_road_over, terrain_type) {
 	TILETYPE_SNOW: country_road_overlay_snow;
@@ -343,7 +346,7 @@ switch(FEAT_ROADTYPES, SELF, switch_concrete_country_road_over, terrain_type) {
 	default: no_deco;
 }
 switch(FEAT_ROADTYPES, SELF, switch_asphalt_country_road_over, terrain_type) {
-	TILETYPE_SNOW: country_road_overlay_snow;
+	TILETYPE_SNOW: country_road_asphalt_overlay_snow;
 	default: no_deco;
 }
 /*
