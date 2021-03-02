@@ -109,7 +109,7 @@ switch(FEAT_ROADTYPES, SELF, underlay_foot_path, terrain_type) {
 	TILETYPE_SNOW: foot_path_underlay_snow;
 	default: foot_path_underlay;
 }
-spriteset(precinct_underlay, "gfx/pedestrian-zone/pedestrian_zone.png") {
+spriteset(underlay_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_underlay_roadtypes()
 }
 spriteset(dirt_road_underlay, "gfx/dirt-road/dirt_road_over.png") {
@@ -189,7 +189,7 @@ template tmpl_overlay_roadtypes() {
 spriteset(no_deco, "gfx/decorations/road_empty.png") {
 	tmpl_overlay_roadtypes()
 }
-spriteset(precinct_overlay, "gfx/pedestrian-zone/pedestrian_zone.png") {
+spriteset(overlay_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_overlay_roadtypes()
 }
 spriteset(dirt_road_overlay, "gfx/dirt-road/dirt_road_over.png") {
@@ -372,7 +372,7 @@ template tmpl_depot() {
 spriteset(depots_foot_path, "gfx/foot-path/foot_under.png") {
 	tmpl_depot()
 }
-spriteset(precinct_depots, "gfx/pedestrian-zone/pedestrian_zone.png") {
+spriteset(depots_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_depot()
 }
 spriteset(dirt_road_depots, "gfx/dirt-road/dirt_road_over.png") {
@@ -427,7 +427,7 @@ switch(FEAT_ROADTYPES, SELF, bridge_surfaces_foot_path, terrain_type) {
 	TILETYPE_SNOW: foot_path_bridge_surfaces_snow; 
 	default: foot_path_bridge_surfaces;
 }
-spriteset(precinct_bridge_surfaces, "gfx/pedestrian-zone/pedestrian_zone.png") {
+spriteset(bridge_surfaces_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_bridge_surfaces()
 }
 spriteset(dirt_road_bridge_surfaces, "gfx/dirt-road/dirt_road_over.png") {
@@ -495,7 +495,7 @@ switch(FEAT_ROADTYPES, SELF, roadstops_foot_path, terrain_type) {
 	TILETYPE_SNOW: foot_path_roadstops_snow; 
 	default: foot_path_roadstops;
 }
-spriteset(precinct_roadstops, "gfx/pedestrian-zone/pedestrian_zone.png") {
+spriteset(roadstops_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_underlay_roadstop()
 }
 spriteset(dirt_road_roadstops, "gfx/dirt-road/dirt_road_over.png") {
@@ -637,11 +637,11 @@ item(FEAT_ROADTYPES, precinct) {
 		sort_order: 2;
 	}
 	graphics {
-		underlay: precinct_underlay;
-		//track_overlay: precinct_overlay;
-		depots: precinct_depots;
-		bridge_surfaces: precinct_bridge_surfaces;
-		roadstops: precinct_roadstops;
+		underlay: underlay_precinct;
+		//track_overlay: overlay_precinct;
+		depots: depots_precinct;
+		bridge_surfaces: bridge_surfaces_precinct;
+		roadstops: roadstops_precinct;
 	}
 }
 item(FEAT_ROADTYPES, dirt_road) {
