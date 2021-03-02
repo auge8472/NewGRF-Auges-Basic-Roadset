@@ -123,10 +123,10 @@ switch(FEAT_ROADTYPES, SELF, underlay_dirt_road, terrain_type) {
 	TILETYPE_SNOW: dirt_road_underlay_snow;
 	default: dirt_road_underlay;
 }
-spriteset(paved_town_road_underlay, "gfx/town-road-paved/town_road_stone_over.png") {
 	tmpl_underlay_roadtypes()
 }
 spriteset(asphalt_town_road_underlay, "gfx/town-road-asphalt/town_road_asphalt_bare.png") {
+spriteset(underlay_paved_town_road, "gfx/town-road-paved/ptrd_under.png") {
 	tmpl_underlay_roadtypes()
 }
 spriteset(paved_country_road_underlay, "gfx/country-road-paved/country_road_stone_over.png") {
@@ -194,11 +194,11 @@ spriteset(overlay_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 spriteset(dirt_road_overlay, "gfx/dirt-road/dirt_road_over.png") {
 	tmpl_overlay_roadtypes()
 }
-spriteset(paved_town_road_rhd_overlay_0, "gfx/town-road-paved/town_road_paved_rhd_over.png") {
+spriteset(paved_town_road_rhd_overlay_0, "gfx/town-road-paved/ptrd_over_0_rhd.png") {
 	//countryside roads
 	tmpl_overlay_roadtypes()
 }
-spriteset(paved_town_road_lhd_overlay_0, "gfx/town-road-paved/town_road_paved_lhd_over.png") {
+spriteset(paved_town_road_lhd_overlay_0, "gfx/town-road-paved/ptrd_over_0_lhd.png") {
 	//countryside roads
 	tmpl_overlay_roadtypes()
 }
@@ -206,11 +206,11 @@ switch (FEAT_ROADTYPES, SELF, paved_town_road_overlay_0, traffic_side) {
 	TRAFFIC_SIDE_RIGHT: paved_town_road_rhd_overlay_0;
 	paved_town_road_lhd_overlay_0;
 }
-spriteset(paved_town_road_rhd_overlay_1, "gfx/town-road-paved/town_road_paved_rhd_over_sub.png") {
+spriteset(paved_town_road_rhd_overlay_1, "gfx/town-road-paved/ptrd_over_1_rhd.png") {
 	//suburban roads
 	tmpl_overlay_roadtypes()
 }
-spriteset(paved_town_road_lhd_overlay_1, "gfx/town-road-paved/town_road_paved_lhd_over_sub.png") {
+spriteset(paved_town_road_lhd_overlay_1, "gfx/town-road-paved/ptrd_over_1_lhd.png") {
 	//suburban roads
 	tmpl_overlay_roadtypes()
 }
@@ -218,19 +218,23 @@ switch (FEAT_ROADTYPES, SELF, paved_town_road_overlay_1, traffic_side) {
 	TRAFFIC_SIDE_RIGHT: paved_town_road_rhd_overlay_1;
 	paved_town_road_lhd_overlay_1;
 }
-spriteset(paved_town_road_overlay_3, "gfx/town-road-paved/town_road_paved_bth_over_city.png") {
+spriteset(paved_town_road_overlay_2, "gfx/town-road-paved/ptrd_over_2_bth.png") {
+	//town streets
+	tmpl_overlay_roadtypes()
+}
+spriteset(paved_town_road_overlay_3, "gfx/town-road-paved/ptrd_over_3_bth.png") {
 	//city roads
 	tmpl_overlay_roadtypes()
 }
-spriteset(paved_town_road_overlay_4, "gfx/town-road-paved/town_road_paved_bth_over_core.png") {
+spriteset(paved_town_road_overlay_4, "gfx/town-road-paved/ptrd_over_4_bth.png") {
 	//city center streets
 	tmpl_overlay_roadtypes()
 }
-switch(FEAT_ROADTYPES, SELF, paved_town_road_overlay, town_zone) {
+switch(FEAT_ROADTYPES, SELF, overlay_paved_town_road, town_zone) {
 	//switch based on town zone
 	4: paved_town_road_overlay_4;
 	3: paved_town_road_overlay_3;
-	2: paved_town_road_overlay_3;
+	2: paved_town_road_overlay_2;
 	1: paved_town_road_overlay_1;
 	default: paved_town_road_overlay_0;
 }
@@ -678,11 +682,11 @@ item(FEAT_ROADTYPES, paved_town_road) {
 		sort_order: 4;
 	}
 	graphics {
-		underlay: paved_town_road_underlay;
-		track_overlay: paved_town_road_overlay;
-		depots: paved_town_road_depots;
-		bridge_surfaces: paved_town_road_bridge_surfaces;
-		roadstops: paved_town_road_roadstops;
+		underlay: underlay_paved_town_road;
+		track_overlay: overlay_paved_town_road;
+		depots: depots_paved_town_road;
+		bridge_surfaces: bridge_surfaces_paved_town_road;
+		roadstops: roadstops_paved_town_road;
 	}
 }
 item(FEAT_ROADTYPES, asphalt_town_road) {
