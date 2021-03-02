@@ -112,14 +112,14 @@ switch(FEAT_ROADTYPES, SELF, underlay_foot_path, terrain_type) {
 spriteset(underlay_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_underlay_roadtypes()
 }
-spriteset(dirt_road_underlay, "gfx/dirt-road/dirt_road_over.png") {
+spriteset(dirt_road_underlay, "gfx/dirt-road/dirt_under.png") {
 	tmpl_underlay_roadtypes()
 }
-spriteset(dirt_road_underlay_snow, "gfx/dirt-road/dirt_road_over_snow.png") {
+spriteset(dirt_road_underlay_snow, "gfx/dirt-road/dirt_under_snow.png") {
 	tmpl_underlay_roadtypes()
 }
 //switch based on terrain type in arctic climate
-switch(FEAT_ROADTYPES, SELF, switch_underlay_dirt, terrain_type) {
+switch(FEAT_ROADTYPES, SELF, underlay_dirt_road, terrain_type) {
 	TILETYPE_SNOW: dirt_road_underlay_snow;
 	default: dirt_road_underlay;
 }
@@ -375,7 +375,7 @@ spriteset(depots_foot_path, "gfx/foot-path/foot_under.png") {
 spriteset(depots_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_depot()
 }
-spriteset(dirt_road_depots, "gfx/dirt-road/dirt_road_over.png") {
+spriteset(depots_dirt_road, "gfx/dirt-road/dirt_under.png") {
 	tmpl_depot()
 }
 spriteset(paved_town_road_depots, "gfx/town-road-paved/town_road_stone_over.png") {
@@ -430,14 +430,14 @@ switch(FEAT_ROADTYPES, SELF, bridge_surfaces_foot_path, terrain_type) {
 spriteset(bridge_surfaces_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_bridge_surfaces()
 }
-spriteset(dirt_road_bridge_surfaces, "gfx/dirt-road/dirt_road_over.png") {
+spriteset(dirt_road_bridge_surfaces, "gfx/dirt-road/dirt_under.png") {
 	tmpl_bridge_surfaces()
 }
-spriteset(dirt_road_bridge_surfaces_snow, "gfx/dirt-road/dirt_road_over_snow.png") {
+spriteset(dirt_road_bridge_surfaces_snow, "gfx/dirt-road/dirt_under_snow.png") {
 	tmpl_bridge_surfaces()
 }
 //switch based on terrain type
-switch(FEAT_ROADTYPES, SELF, switch_bridge_surfaces_dirt, terrain_type) {
+switch(FEAT_ROADTYPES, SELF, bridge_surfaces_dirt_road, terrain_type) {
 	TILETYPE_SNOW: dirt_road_bridge_surfaces_snow; 
 	default: dirt_road_bridge_surfaces;
 }
@@ -498,11 +498,16 @@ switch(FEAT_ROADTYPES, SELF, roadstops_foot_path, terrain_type) {
 spriteset(roadstops_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_underlay_roadstop()
 }
-spriteset(dirt_road_roadstops, "gfx/dirt-road/dirt_road_over.png") {
+spriteset(dirt_road_roadstops, "gfx/dirt-road/dirt_under.png") {
 	tmpl_underlay_roadstop()
 }
-spriteset(dirt_road_roadstops_snow, "gfx/dirt-road/dirt_road_over_snow.png") {
+spriteset(dirt_road_roadstops_snow, "gfx/dirt-road/dirt_under_snow.png") {
 	tmpl_underlay_roadstop()
+}
+//switch based on terrain type
+switch(FEAT_ROADTYPES, SELF, roadstops_dirt_road, terrain_type) {
+	TILETYPE_SNOW: dirt_road_roadstops_snow; 
+	default: dirt_road_roadstops;
 }
 spriteset(paved_town_road_roadstops, "gfx/town-road-paved/town_road_stone_over.png") {
 	tmpl_underlay_roadstop()
@@ -524,11 +529,6 @@ spriteset(concrete_highway_roadstops, "gfx/highway-concrete/hway_concrete_europe
 }
 spriteset(asphalt_highway_roadstops, "gfx/highway-asphalt/hway_asphalt_europe_over.png") {
 	tmpl_underlay_roadstop()
-}
-//switch based on terrain type
-switch(FEAT_ROADTYPES, SELF, switch_roadstops_dirt, terrain_type) {
-	TILETYPE_SNOW: dirt_road_roadstops_snow; 
-	default: dirt_road_roadstops;
 }
 
 // catenary spritesets and definitions, trolley wires and marker posts
@@ -646,14 +646,14 @@ item(FEAT_ROADTYPES, precinct) {
 }
 item(FEAT_ROADTYPES, dirt_road) {
 	property {
-		name: string(STR_STREET_NAME_FARM_PATH);
+		name: string(STR_STREET_NAME_DIRT_SIDING_PATH);
 		label: "DIRT";
 		speed_limit: 30 km/h;
 		introduction_date: date(0000,01,01);
 		construction_cost: 3;
 		maintenance_cost: 5;
 		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
-		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
+		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "CSRD", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
 		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES);
 		toolbar_caption: string(STR_FARM_PATH_TOOLBAR_CAPTION);
 		menu_text: string(STR_FARM_PATH_MENU_TEXT);
@@ -663,11 +663,11 @@ item(FEAT_ROADTYPES, dirt_road) {
 		sort_order: 3;
 	}
 	graphics {
-		underlay: switch_underlay_dirt;
-		//track_overlay: switch_asphalt_zones;
-		depots: dirt_road_depots;
-		bridge_surfaces: switch_bridge_surfaces_dirt;
-		roadstops: switch_roadstops_dirt;
+		underlay: underlay_dirt_road;
+		//track_overlay: overlay_dirt_road;
+		depots: depots_dirt_road;
+		bridge_surfaces: bridge_surfaces_dirt_road;
+		roadstops: roadstops_dirt_road;
 	}
 }
 item(FEAT_ROADTYPES, paved_town_road) {

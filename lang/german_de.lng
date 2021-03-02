@@ -13,7 +13,7 @@ STR_WRONG_OPENTTD_VERSION                         :In dieser GRF werden Funktion
 STR_STREET_NAME_FOOTPATH                          :Fußweg
 STR_STREET_NAME_PRECINCT                          :Fußgängerzone
 STR_STREET_NAME_FOREST_PATH                       :Waldweg
-STR_STREET_NAME_FARM_PATH                         :Feldweg
+STR_STREET_NAME_DIRT_SIDING_PATH                  :Unbefestigter Anschlussweg
 STR_STREET_NAME_PAVED_TOWN_ROAD                   :Gepflasterte Stadtstraße
 STR_STREET_NAME_PAVED_TOWN_ROAD_TROLLEY           :Gepflasterte Stadtstraße mit Oberleitung
 STR_STREET_NAME_ASPHALT_TOWN_ROAD                 :Asphaltierte Stadtstraße
