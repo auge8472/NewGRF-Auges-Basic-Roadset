@@ -18,7 +18,6 @@ These are the planned road types.
 | asphalt town road        | 55km/h      | Yes      | Yes    | Yes           | Yes  | Yes     | 1965              |
 | industry road            | 45km/h      | Yes      | No     | No            | Yes  | No      | 0                 |
 | set paved country road   | 60km/h      | Yes      | No     | Yes           | No   | No      | 0                 |
-| concrete country road    | 75km/h      | Yes      | No     | Yes           | No   | No      | 1940              |
 | asphalt country road     | 90km/h      | Yes      | No     | Yes           | No   | No      | 1970              |
 | highway (1st generation) | 90km/h      | Yes      | No     | No            | No   | No      | 1930              |
 | highway (2nd generation) | 120km/h     | Yes      | No     | No            | No   | No      | 1975              |

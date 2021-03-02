@@ -132,7 +132,6 @@ spriteset(asphalt_town_road_underlay, "gfx/town-road-asphalt/town_road_asphalt_b
 spriteset(paved_country_road_underlay, "gfx/country-road-paved/country_road_stone_over.png") {
 	tmpl_underlay_roadtypes()
 }
-spriteset(concrete_country_road_underlay, "gfx/country-road-concrete/country_road_concrete_over.png") {
 	tmpl_underlay_roadtypes()
 }
 spriteset(asphalt_country_road_underlay, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
@@ -337,8 +336,6 @@ spriteset(country_road_asphalt_overlay_snow, "gfx/decorations/road_deco_snow_ca_
 switch(FEAT_ROADTYPES, SELF, switch_paved_country_road_over, terrain_type) {
 	TILETYPE_SNOW: country_road_overlay_snow;
 	default: no_deco;
-}
-switch(FEAT_ROADTYPES, SELF, switch_concrete_country_road_over, terrain_type) {
 	TILETYPE_SNOW: country_road_overlay_snow;
 	default: no_deco;
 }
@@ -385,9 +382,6 @@ spriteset(asphalt_town_road_depots, "gfx/town-road-asphalt/town_road_asphalt_bar
 	tmpl_depot()
 }
 spriteset(paved_country_road_depots, "gfx/country-road-paved/country_road_stone_over.png") {
-	tmpl_depot()
-}
-spriteset(concrete_country_road_depots, "gfx/country-road-concrete/country_road_concrete_over.png") {
 	tmpl_depot()
 }
 spriteset(asphalt_country_road_depots, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
@@ -448,9 +442,6 @@ spriteset(asphalt_town_road_bridge_surfaces, "gfx/town-road-asphalt/town_road_as
 	tmpl_bridge_surfaces()
 }
 spriteset(paved_country_road_bridge_surfaces, "gfx/country-road-paved/country_road_stone_over.png") {
-	tmpl_bridge_surfaces()
-}
-spriteset(concrete_country_road_bridge_surfaces, "gfx/country-road-concrete/country_road_concrete_over.png") {
 	tmpl_bridge_surfaces()
 }
 spriteset(asphalt_country_road_bridge_surfaces, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
@@ -516,9 +507,6 @@ spriteset(asphalt_town_road_roadstops, "gfx/town-road-asphalt/town_road_asphalt_
 	tmpl_underlay_roadstop()
 }
 spriteset(paved_country_road_roadstops, "gfx/country-road-paved/country_road_stone_over.png") {
-	tmpl_underlay_roadstop()
-}
-spriteset(concrete_country_road_roadstops, "gfx/country-road-concrete/country_road_concrete_over.png") {
 	tmpl_underlay_roadstop()
 }
 spriteset(asphalt_country_road_roadstops, "gfx/country-road-asphalt/country_road_asphalt_bare.png") {
@@ -747,34 +735,6 @@ item(FEAT_ROADTYPES, paved_country_road) {
 		depots: paved_country_road_depots;
 		bridge_surfaces: paved_country_road_bridge_surfaces;
 		roadstops: paved_country_road_roadstops;
-		catenary_back: country_road_markers_rear;
-		catenary_front: country_road_markers_front;
-	}
-}
-item(FEAT_ROADTYPES, concrete_country_road) {
-	property {
-		name: string(STR_STREET_NAME_CONCRETE_COUNTRY_ROAD);
-		label: "CCRD";
-		speed_limit: 75 km/h;
-		introduction_date: date(1940,01,01);
-		construction_cost: 16;
-		maintenance_cost: 20;
-		// ROAD, ELRD, FOOT, PEDZ, DIRT, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
-		powered_roadtype_list: ["ROAD", "ASPT", "ELRD", "DIRT", "PTRD", "ATRD", "PCRD", "CCRD", "ACRD", "CHWY", "AHWY", "ELAS", "HWAY"];
-		roadtype_flags: bitmask(ROADTYPE_FLAG_NO_HOUSES, ROADTYPE_FLAG_CATENARY);
-		toolbar_caption: string(STR_CONCRETE_COUNTRY_ROAD_TOOLBAR_CAPTION);
-		menu_text: string(STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT);
-		build_window_caption: string(STR_GENERIC_BUILD_WINDOW_CAPTION);
-		autoreplace_text: string(STR_GENERIC_AUTOREPLACE_TEXT);
-		new_engine_text: string(STR_GENERIC_NEW_ENGINE_TEXT);
-		sort_order: 7;
-	}
-	graphics {
-		underlay: concrete_country_road_underlay;
-		track_overlay: switch_concrete_country_road_over;
-		depots: concrete_country_road_depots;
-		bridge_surfaces: concrete_country_road_bridge_surfaces;
-		roadstops: concrete_country_road_roadstops;
 		catenary_back: country_road_markers_rear;
 		catenary_front: country_road_markers_front;
 	}
