@@ -705,7 +705,7 @@ item(FEAT_ROADTYPES, paved_town_road) {
 	property {
 		name: string(STR_STREET_NAME_PAVED_TOWN_ROAD);
 		label: "PTRD";
-		speed_limit: 45 km/h;
+		speed_limit: 40 km/h;
 		introduction_date: date(0000,01,01);
 		construction_cost: 8;
 		maintenance_cost: 10;
@@ -732,8 +732,8 @@ item(FEAT_ROADTYPES, asphalt_town_road) {
 	property {
 		name: string(STR_STREET_NAME_ASPHALT_TOWN_ROAD);
 		label: "ATRD";
-		speed_limit: 55 km/h;
-		introduction_date: date(1965,01,01);
+		speed_limit: 50 km/h;
+		introduction_date: date(1960,01,01);
 		construction_cost: 16;
 		maintenance_cost: 24;
 		// ROAD, ELRD, FOOT, PEDZ, DIRT, CSRD, PTRD, PETR, ATRD, AETR, PCRD, CCRD, ACRD, CHWY; AHWY, ASPT, ELAS, HWAY
@@ -758,7 +758,7 @@ item(FEAT_ROADTYPES, paved_country_road) {
 	property {
 		name: string(STR_STREET_NAME_PAVED_COUNTRY_ROAD);
 		label: "PCRD";
-		speed_limit: 60 km/h;
+		speed_limit: 70 km/h;
 		introduction_date: date(0000,01,01);
 		construction_cost: 12;
 		maintenance_cost: 16;
