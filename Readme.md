@@ -12,11 +12,9 @@ These are the planned road types.
 | ------------------------ | ----------- | -------- | ------ | ------------- | ---- | ------- | -----------------:|
 | foot path                | 0 km/h      | No       | Yes    | Yes           | No   | No      | 0                 |
 | precinct/pedestrian zone | 0 km/h      | No       | Yes    | Yes           | No   | No      | 1960              |
-| dirt road (forest)       | 20km/h      | Yes      | No     | No            | No   | No      | 0                 |
 | dirt road (farm)         | 35km/h      | Yes      | No     | Yes           | No   | No      | 0                 |
 | set paved town road      | 45km/h      | Yes      | Yes    | Yes           | Yes  | Yes     | 0                 |
 | asphalt town road        | 55km/h      | Yes      | Yes    | Yes           | Yes  | Yes     | 1965              |
-| industry road            | 45km/h      | Yes      | No     | No            | Yes  | No      | 0                 |
 | set paved country road   | 60km/h      | Yes      | No     | Yes           | No   | No      | 0                 |
 | asphalt country road     | 90km/h      | Yes      | No     | Yes           | No   | No      | 1970              |
 | highway (1st generation) | 90km/h      | Yes      | No     | No            | No   | No      | 1930              |
