@@ -21,6 +21,7 @@ These are the planned road types.
 | asphalt country road     | 90km/h      | Yes      | No     | Yes           | No   | No      | 1970              |
 | highway (1st generation) | 90km/h      | Yes      | No     | No            | No   | No      | 1930              |
 | highway (2nd generation) | 120km/h     | Yes      | No     | No            | No   | No      | 1975              |
+| concrete accommodation road | 50km/h      | Yes      | No     | Yes           | No   | No      | 1950              |
 
 ## Trams
 

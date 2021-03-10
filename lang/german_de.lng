@@ -14,6 +14,7 @@ STR_STREET_NAME_FOOTPATH                          :Fußweg
 STR_STREET_NAME_PRECINCT                          :Fußgängerzone
 STR_STREET_NAME_FOREST_PATH                       :Waldweg
 STR_STREET_NAME_DIRT_SIDING_PATH                  :Unbefestigter Anschlussweg
+STR_STREET_NAME_CONCRETE_SIDING_ROAD              :Betonierte Anschlussstraße
 STR_STREET_NAME_PAVED_TOWN_ROAD                   :Gepflasterte Stadtstraße
 STR_STREET_NAME_PAVED_TOWN_ROAD_TROLLEY           :Gepflasterte Stadtstraße mit Oberleitung
 STR_STREET_NAME_ASPHALT_TOWN_ROAD                 :Asphaltierte Stadtstraße
@@ -45,6 +46,10 @@ STR_PRECINCT_MENU_TEXT                            :Fußgängerzonen
 # farm road text snippets
 STR_FARM_PATH_TOOLBAR_CAPTION                     :Bau von Feldwegen
 STR_FARM_PATH_MENU_TEXT                           :Feldwege
+
+# concrete siding road text snippets
+STR_CONCRETE_SIDING_ROAD_TOOLBAR_CAPTION          :Bau von Betonplattenstraßen
+STR_CONCRETE_SIDING_ROAD_MENU_TEXT                :Betonplattenstraßen
 
 # paved town roads text snippets
 STR_PAVED_TOWN_ROAD_TOOLBAR_CAPTION               :Bau von gepflasterten Stadtstraßen

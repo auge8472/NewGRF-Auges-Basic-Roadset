@@ -14,6 +14,7 @@ STR_STREET_NAME_FOOTPATH                          :Foot path
 STR_STREET_NAME_PRECINCT                          :Precinct
 STR_STREET_NAME_FOREST_PATH                       :Forest path
 STR_STREET_NAME_DIRT_SIDING_PATH                  :Dirt accommodation path
+STR_STREET_NAME_CONCRETE_SIDING_ROAD              :Concrete accommodation road
 STR_STREET_NAME_PAVED_TOWN_ROAD                   :Set paved town road
 STR_STREET_NAME_PAVED_TOWN_ROAD_TROLLEY           :Set paved town road with trolley wires
 STR_STREET_NAME_ASPHALT_TOWN_ROAD                 :Asphalt town road
@@ -52,6 +53,10 @@ STR_PRECINCT_MENU_TEXT                            :Precinct Construction
 # dirt siding road text snippets
 STR_FARM_PATH_TOOLBAR_CAPTION                     :Dirt Accomodation Road Construction
 STR_FARM_PATH_MENU_TEXT                           :Dirt Accomodation Road Construction
+
+# concrete siding road text snippets
+STR_CONCRETE_SIDING_ROAD_TOOLBAR_CAPTION          :Concrete Accomodation Road Construction
+STR_CONCRETE_SIDING_ROAD_MENU_TEXT                :Concrete Accomodation Road Construction
 
 # paved town roads text snippets
 STR_PAVED_TOWN_ROAD_TOOLBAR_CAPTION               :Paved Town Road Construction
