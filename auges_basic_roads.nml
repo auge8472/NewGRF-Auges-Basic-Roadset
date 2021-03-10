@@ -379,7 +379,7 @@ spriteset(depots_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 spriteset(depots_dirt_road, "gfx/dirt-road/dirt_under.png") {
 	tmpl_depot()
 }
-spriteset(paved_town_road_depots, "gfx/town-road-paved/town_road_stone_over.png") {
+spriteset(depots_paved_town_road, "gfx/town-road-paved/ptrd_under.png") {
 	tmpl_depot()
 }
 spriteset(depots_asphalt_town_road, "gfx/town-road-asphalt/atrd_under.png") {
@@ -439,7 +439,7 @@ switch(FEAT_ROADTYPES, SELF, bridge_surfaces_dirt_road, terrain_type) {
 	TILETYPE_SNOW: dirt_road_bridge_surfaces_snow; 
 	default: dirt_road_bridge_surfaces;
 }
-spriteset(paved_town_road_bridge_surfaces, "gfx/town-road-paved/town_road_stone_over.png") {
+spriteset(bridge_surfaces_paved_town_road, "gfx/town-road-paved/ptrd_under.png") {
 	tmpl_bridge_surfaces()
 }
 spriteset(bridge_surfaces_asphalt_town_road, "gfx/town-road-asphalt/atrd_under.png") {
@@ -504,7 +504,7 @@ switch(FEAT_ROADTYPES, SELF, roadstops_dirt_road, terrain_type) {
 	TILETYPE_SNOW: dirt_road_roadstops_snow; 
 	default: dirt_road_roadstops;
 }
-spriteset(paved_town_road_roadstops, "gfx/town-road-paved/town_road_stone_over.png") {
+spriteset(roadstops_paved_town_road, "gfx/town-road-paved/ptrd_under.png") {
 	tmpl_underlay_roadstop()
 }
 spriteset(roadstops_asphalt_town_road, "gfx/town-road-asphalt/atrd_under.png") {
