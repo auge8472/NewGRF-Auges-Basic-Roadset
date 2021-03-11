@@ -364,7 +364,6 @@ switch(FEAT_ROADTYPES, SELF, concrete_highway_overlay, param_road_style) {
 }
 */
 
-
 // Template for depot sprites
 template tmpl_depot() {
 	[150, 218, 64, 61, -31, -30]
@@ -810,7 +809,6 @@ item(FEAT_ROADTYPES, asphalt_country_road) {
 		catenary_front: country_road_markers_front;
 	}
 }
-
 item(FEAT_ROADTYPES, concrete_highway) {
 	property {
 		name: string(STR_STREET_NAME_CONCRETE_HIGHWAY);
