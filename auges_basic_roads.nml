@@ -535,6 +535,59 @@ spriteset(roadstops_asphalt_highway, "gfx/highway-asphalt/ahwy_europe_under.png"
 	tmpl_underlay_roadstop()
 }
 
+// marker posts spritesets and definitions
+template tmpl_posts_normal() {
+	[ 10, 10, 65, 47, -30, -16]
+	[ 80, 10, 65, 47, -30, -16]
+
+	[150, 10, 64, 47, -31, -16]
+	[220, 10, 64, 47, -31, -16]
+	[290, 10, 64, 47, -30, -16]
+	[360, 10, 64, 47, -31, -16]
+	[ 10, 66, 64, 47, -31, -16]
+
+	[ 80, 66, 64, 47, -31, -16]
+	[150, 66, 65, 47, -30, -16]
+	[220, 66, 64, 47, -31, -16]
+	[290, 66, 65, 47, -30, -16]
+
+	[150, 234, 65, 55, -30, -24]
+	[220, 234, 65, 39, -30, -16]
+	[290, 234, 65, 39, -30, -16]
+	[360, 234, 65, 55, -30, -24]
+// short ends
+	[360,  66, 65, 47, -30, -16]
+	[ 10, 122, 65, 47, -30, -16]
+	[ 80, 122, 64, 47, -31, -16]
+	[150, 122, 64, 47, -30, -16]
+
+	[220, 122, 64, 31, -31, -16]
+	[290, 122, 64, 31, -31, -16]
+	[360, 122, 64, 31, -31, -16]
+	[ 10, 178, 64, 31, -31, -16]
+}
+//trolley wire for bridges
+template tmpl_posts_bridge() {
+	[ 10, 298, 64, 47, -31, -16]
+	[ 80, 298, 64, 47, -31, -16]
+	[150, 298, 64, 55, -31, -24]
+	[220, 298, 64, 39, -31, -16]
+	[290, 298, 64, 39, -31, -16]
+	[360, 298, 64, 55, -31, -24]
+}
+//combine the two to allow bridge to use different png - doesn't work :(
+template tmpl_posts_roadtypes() {
+	tmpl_posts_normal()
+	tmpl_posts_bridge()
+}
+// define
+spriteset(country_road_markers_rear, "gfx/decorations/country_marks_rear.png") {
+	tmpl_posts_roadtypes()
+}
+spriteset(country_road_markers_front, "gfx/decorations/country_marks_front.png") {
+	tmpl_posts_roadtypes()
+}
+
 // catenary spritesets and definitions, trolley wires and marker posts
 // regular trolley wire sprites 
 template tmpl_wire_normal() {
@@ -580,14 +633,6 @@ template tmpl_wire_bridge() {
 template tmpl_wire_roadtypes() {
 	tmpl_wire_normal()
 	tmpl_wire_bridge()
-}
-
-// define
-spriteset(country_road_markers_rear, "gfx/decorations/country_marks_rear.png") {
-	tmpl_wire_roadtypes()
-}
-spriteset(country_road_markers_front, "gfx/decorations/country_marks_front.png") {
-	tmpl_wire_roadtypes()
 }
 
 item(FEAT_ROADTYPES, default_town_road) {
