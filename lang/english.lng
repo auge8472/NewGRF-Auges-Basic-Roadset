@@ -56,16 +56,16 @@ STR_CONCRETE_SIDING_ROAD_TOOLBAR_CAPTION          :Concrete Accomodation Road Co
 STR_CONCRETE_SIDING_ROAD_MENU_TEXT                :Concrete Accomodation Road Construction
 
 # paved town roads text snippets
-STR_PAVED_TOWN_ROAD_TOOLBAR_CAPTION               :Paved Town Road Construction
-STR_PAVED_TOWN_ROAD_MENU_TEXT                     :Paved Town Road Construction
+STR_PAVED_TOWN_ROAD_TOOLBAR_CAPTION               :Stone Paved Town Road Construction
+STR_PAVED_TOWN_ROAD_MENU_TEXT                     :Stone Paved Town Road Construction
 
 # asphalt town roads text snippets
 STR_ASPHALT_TOWN_ROAD_TOOLBAR_CAPTION             :Asphalt Town Road Construction
 STR_ASPHALT_TOWN_ROAD_MENU_TEXT                   :Asphalt Town Road Construction
 
 # paved country road text snippets
-STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION            :Paved Country Road Construction
-STR_PAVED_COUNTRY_ROAD_MENU_TEXT                  :Paved Country Road Construction
+STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION            :Stone Paved Country Road Construction
+STR_PAVED_COUNTRY_ROAD_MENU_TEXT                  :Stone Paved Country Road Construction
 
 # asphalt country road text snippets
 STR_ASPHALT_COUNTRY_ROAD_TOOLBAR_CAPTION          :Asphalt Country Road Construction
