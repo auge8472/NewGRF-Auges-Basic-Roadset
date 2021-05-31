@@ -646,7 +646,7 @@ item(FEAT_ROADTYPES, foot_path) {
 	property {
 		name: string(STR_STREET_NAME_FOOTPATH);
 		label: "FOOT";
-		speed_limit: 4 km/h;
+		//speed_limit: 4 km/h;
 		introduction_date: date(0000,01,01);
 		construction_cost: 1;
 		maintenance_cost: 2;
@@ -671,7 +671,7 @@ item(FEAT_ROADTYPES, precinct) {
 	property {
 		name: string(STR_STREET_NAME_PRECINCT);
 		label: "PEDZ";
-		speed_limit: 4 km/h;
+		//speed_limit: 4 km/h;
 		introduction_date: date(1960,01,01);
 		construction_cost: 2;
 		maintenance_cost: 3;
