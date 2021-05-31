@@ -3,7 +3,7 @@
 
 # GRF name and description definitions
 STR_GRF_NAME        :{TITLE} {VERSION}
-STR_GRF_DESCRIPTION :TITLE} is another road set that attempts to fulfill the basic requirements for a game. It contains dirt roads, town roads, country roads, highways and also different tramway rails.{}{COPYRIGHT}2020 Auge{}License: GPL v2
+STR_GRF_DESCRIPTION :{TITLE} is another road set that attempts to fulfill the basic requirements for a game. It contains dirt roads, town roads, country roads, highways and also different tramway rails.{}{COPYRIGHT}2020 Auge{}License: GPL v2
 
 # general error messages (taken from Countryroads)
 STR_WRONG_PLATFORM                                :This GRF uses features not available in TTDPatch.
