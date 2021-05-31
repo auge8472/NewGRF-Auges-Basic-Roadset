@@ -19,7 +19,6 @@ STR_STREET_NAME_PAVED_TOWN_ROAD_TROLLEY           :Gepflasterte Stadtstraße mit
 STR_STREET_NAME_ASPHALT_TOWN_ROAD                 :Asphaltierte Stadtstraße
 STR_STREET_NAME_ASPHALT_TOWN_ROAD_TROLLEY         :Asphaltierte Stadtstraße mit Oberleitung
 STR_STREET_NAME_PAVED_COUNTRY_ROAD                :Gepflasterte Landstraße
-STR_STREET_NAME_CONCRETE_COUNTRY_ROAD             :Betonplattenstraße
 STR_STREET_NAME_ASPHALT_COUNTRY_ROAD              :Asphaltierte Landstraße
 STR_STREET_NAME_CONCRETE_HIGHWAY                  :Betonierte Autobahn
 STR_STREET_NAME_ASPHALT_HIGHWAY                   :Asphaltierte Autobahn
@@ -60,10 +59,6 @@ STR_ASPHALT_TOWN_ROAD_MENU_TEXT                   :Asphaltierte Stadtstraßen
 # paved country road text snippets
 STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION            :Bau von gepflasterten Landstraßen
 STR_PAVED_COUNTRY_ROAD_MENU_TEXT                  :Gepflasterte Landstraßen
-
-# concrete country road text snippets
-STR_CONCRETE_COUNTRY_ROAD_TOOLBAR_CAPTION         :Bau von betonierten Landstraßen
-STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT               :Betonierte Landstraßen
 
 # asphalt country road text snippets
 STR_ASPHALT_COUNTRY_ROAD_TOOLBAR_CAPTION          :Bau von asphaltierten Landstraßen

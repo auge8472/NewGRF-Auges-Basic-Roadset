@@ -19,7 +19,6 @@ STR_STREET_NAME_PAVED_TOWN_ROAD_TROLLEY           :Set paved town road with trol
 STR_STREET_NAME_ASPHALT_TOWN_ROAD                 :Asphalt town road
 STR_STREET_NAME_ASPHALT_TOWN_ROAD_TROLLEY         :Asphalt town road with trolley wires
 STR_STREET_NAME_PAVED_COUNTRY_ROAD                :Set paved country road
-STR_STREET_NAME_CONCRETE_COUNTRY_ROAD             :Contrete slab country road
 STR_STREET_NAME_ASPHALT_COUNTRY_ROAD              :Asphalt country road
 STR_STREET_NAME_CONCRETE_HIGHWAY                  :Concrete motorway
 STR_STREET_NAME_ASPHALT_HIGHWAY                   :Asphalt motorway
@@ -67,10 +66,6 @@ STR_ASPHALT_TOWN_ROAD_MENU_TEXT                   :Asphalt Town Road Constructio
 # paved country road text snippets
 STR_PAVED_COUNTRY_ROAD_TOOLBAR_CAPTION            :Paved Country Road Construction
 STR_PAVED_COUNTRY_ROAD_MENU_TEXT                  :Paved Country Road Construction
-
-# concrete country road text snippets
-STR_CONCRETE_COUNTRY_ROAD_TOOLBAR_CAPTION         :Concrete Country Road Construction
-STR_CONCRETE_COUNTRY_ROAD_MENU_TEXT               :Concrete Country Road Construction
 
 # asphalt country road text snippets
 STR_ASPHALT_COUNTRY_ROAD_TOOLBAR_CAPTION          :Asphalt Country Road Construction
