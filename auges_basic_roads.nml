@@ -109,8 +109,16 @@ switch(FEAT_ROADTYPES, SELF, underlay_foot_path, terrain_type) {
 	TILETYPE_SNOW: foot_path_underlay_snow;
 	default: foot_path_underlay;
 }
-spriteset(underlay_precinct, "gfx/pedestrian-zone/pedz_under.png") {
+spriteset(precinct_underlay, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_underlay_roadtypes()
+}
+spriteset(precinct_underlay_snow, "gfx/pedestrian-zone/pedz_under_snow.png") {
+	tmpl_underlay_roadtypes()
+}
+//switch based on terrain type in arctic climate
+switch(FEAT_ROADTYPES, SELF, underlay_precinct, terrain_type) {
+	TILETYPE_SNOW: precinct_underlay_snow;
+	default: precinct_underlay;
 }
 spriteset(dirt_road_underlay, "gfx/dirt-road/dirt_under.png") {
 	tmpl_underlay_roadtypes()
