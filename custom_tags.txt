@@ -1,3 +1,4 @@
 VERSION          :0.1.0
 TITLE            :AB-Roads
 SUPPORTEDVERSION :OpenTTD 1.10.0
+WEB              :https://github.com/auge8472/NewGRF-Auges-Basic-Roadset

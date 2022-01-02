@@ -5,6 +5,7 @@ grf {
 	grfid: "AU\04\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESCRIPTION);
+	url: string(STR_URL);
 	version: 1;
 	min_compatible_version: 1;
 	param 0 {
