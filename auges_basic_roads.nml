@@ -132,8 +132,16 @@ switch(FEAT_ROADTYPES, SELF, underlay_dirt_road, terrain_type) {
 	TILETYPE_SNOW: dirt_road_underlay_snow;
 	default: dirt_road_underlay;
 }
-spriteset(underlay_concrete_siding_road, "gfx/siding-road-concrete/csrd_under.png") {
+spriteset(concrete_siding_road_underlay, "gfx/siding-road-concrete/csrd_under.png") {
 	tmpl_underlay_roadtypes()
+}
+spriteset(concrete_siding_road_underlay_snow, "gfx/siding-road-concrete/csrd_under_snow.png") {
+	tmpl_underlay_roadtypes()
+}
+//switches for concrete siding road based on terrain type
+switch(FEAT_ROADTYPES, SELF, underlay_concrete_siding_road, terrain_type) {
+	TILETYPE_SNOW: concrete_siding_road_underlay_snow;
+	default: concrete_siding_road_underlay;
 }
 spriteset(underlay_paved_town_road, "gfx/town-road-paved/ptrd_under.png") {
 	tmpl_underlay_roadtypes()
@@ -202,6 +210,10 @@ spriteset(overlay_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_overlay_roadtypes()
 }
 spriteset(dirt_road_overlay, "gfx/dirt-road/dirt_road_over.png") {
+	tmpl_overlay_roadtypes()
+}
+//overlay_concrete_siding_road
+spriteset(overlay_concrete_siding_road, "gfx/decorations/road_empty.png") {
 	tmpl_overlay_roadtypes()
 }
 spriteset(paved_town_road_rhd_overlay_0, "gfx/town-road-paved/ptrd_over_0_rhd.png") {
@@ -346,11 +358,6 @@ spriteset(country_road_overlay_snow, "gfx/decorations/road_deco_snow_scattered.p
 spriteset(country_road_asphalt_overlay_snow, "gfx/decorations/road_deco_snow_ca_scattered.png") {
 	tmpl_overlay_roadtypes()
 }
-//switches for concrete siding road based on terrain type
-switch(FEAT_ROADTYPES, SELF, overlay_concrete_siding_road, terrain_type) {
-	TILETYPE_SNOW: country_road_overlay_snow;
-	default: no_deco;
-}
 //switches for country roads based on terrain type
 switch(FEAT_ROADTYPES, SELF, overlay_paved_country_road, terrain_type) {
 	TILETYPE_SNOW: country_road_overlay_snow;
@@ -454,8 +461,16 @@ switch(FEAT_ROADTYPES, SELF, bridge_surfaces_dirt_road, terrain_type) {
 	TILETYPE_SNOW: dirt_road_bridge_surfaces_snow; 
 	default: dirt_road_bridge_surfaces;
 }
-spriteset(bridge_surfaces_concrete_siding_road, "gfx/siding-road-concrete/csrd_under.png") {
+spriteset(concrete_siding_road_bridge_surfaces, "gfx/siding-road-concrete/csrd_under.png") {
 	tmpl_bridge_surfaces()
+}
+spriteset(concrete_siding_road_bridge_surfaces_snow, "gfx/siding-road-concrete/csrd_under_snow.png") {
+	tmpl_bridge_surfaces()
+}
+//switch based on terrain type
+switch(FEAT_ROADTYPES, SELF, bridge_surfaces_concrete_siding_road, terrain_type) {
+	TILETYPE_SNOW: concrete_siding_road_bridge_surfaces_snow;
+	default: concrete_siding_road_bridge_surfaces;
 }
 spriteset(bridge_surfaces_paved_town_road, "gfx/town-road-paved/ptrd_under.png") {
 	tmpl_bridge_surfaces()
