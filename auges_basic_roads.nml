@@ -155,11 +155,25 @@ spriteset(underlay_paved_country_road, "gfx/country-road-paved/pcrd_under.png") 
 spriteset(underlay_asphalt_country_road, "gfx/country-road-asphalt/acrd_under.png") {
 	tmpl_underlay_roadtypes()
 }
-spriteset(concrete_highway_europe_underlay, "gfx/highway-concrete/chwy_europe_under.png") {
+spriteset(concrete_highway_northamerica_no_snow_underlay, "gfx/highway-concrete/chwy_northamerica_under.png") {
 	tmpl_underlay_roadtypes()
 }
-spriteset(concrete_highway_northamerica_underlay, "gfx/highway-concrete/chwy_northamerica_under.png") {
+spriteset(concrete_highway_northamerica_snow_underlay, "gfx/highway-concrete/chwy_northamerica_under_snow.png") {
 	tmpl_underlay_roadtypes()
+}
+switch(FEAT_ROADTYPES, SELF, concrete_highway_northamerica_underlay, terrain_type) {
+	TILETYPE_SNOW: concrete_highway_northamerica_snow_underlay;
+	default: concrete_highway_northamerica_no_snow_underlay;
+}
+spriteset(concrete_highway_europe_no_snow_underlay, "gfx/highway-concrete/chwy_europe_under.png") {
+	tmpl_underlay_roadtypes()
+}
+spriteset(concrete_highway_europe_snow_underlay, "gfx/highway-concrete/chwy_europe_under_snow.png") {
+	tmpl_underlay_roadtypes()
+}
+switch(FEAT_ROADTYPES, SELF, concrete_highway_europe_underlay, terrain_type) {
+	TILETYPE_SNOW: concrete_highway_europe_snow_underlay;
+	default: concrete_highway_europe_no_snow_underlay;
 }
 switch (FEAT_ROADTYPES, SELF, underlay_concrete_highway, param_road_style) {
 	1:concrete_highway_northamerica_underlay;
@@ -367,18 +381,6 @@ switch(FEAT_ROADTYPES, SELF, overlay_asphalt_country_road, terrain_type) {
 	TILETYPE_SNOW: country_road_asphalt_overlay_snow;
 	default: no_deco;
 }
-/*
-spriteset(concrete_highway_europe_overlay, "gfx/highway-concrete/hway_concrete_europe_over.png") {
-	tmpl_overlay_roadtypes()
-}
-spriteset(concrete_highway_northamerica_overlay, "gfx/highway-concrete/hway_concrete_northamerica_over.png") {
-	tmpl_overlay_roadtypes()
-}
-switch(FEAT_ROADTYPES, SELF, concrete_highway_overlay, param_road_style) {
-	1: concrete_highway_northamerica_overlay;
-	default: concrete_highway_europe_overlay;
-}
-*/
 
 // Template for depot sprites
 template tmpl_depot() {
@@ -897,7 +899,6 @@ item(FEAT_ROADTYPES, concrete_highway) {
 		sort_order: 9;
 	}
 	graphics {
-		//track_overlay: concrete_highway_overlay;
 		underlay: underlay_concrete_highway;
 		depots: depots_concrete_highway;
 		bridge_surfaces: bridge_surfaces_concrete_highway;
