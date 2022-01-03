@@ -22,3 +22,15 @@ These are the planned road types.
 | asphalt country road        | 90km/h      | Yes      | No     | Yes           | 1970              |
 | highway (1st generation)    | 90km/h      | Yes      | No     | No            | 1930              |
 | highway (2nd generation)    | 120km/h     | Yes      | No     | No            | 1975              |
+
+## Artwork and code
+
+The most sprites and the code are adopted from or at least inspired by other GPL-2-licensed sets of the following authors:
+
+- GarryG
+- Kruemelchen
+- Andrew350
+- Ufiby
+- supermop
+
+I'm sorry if I forgot someone. If so, remind me please. Thank you all.
