@@ -474,7 +474,7 @@ spriteset(dirt_road_bridge_surfaces_snow, "gfx/dirt-road/dirt_under_snow.png") {
 }
 //switch based on terrain type
 switch(FEAT_ROADTYPES, SELF, bridge_surfaces_dirt_road, terrain_type) {
-	TILETYPE_SNOW: dirt_road_bridge_surfaces_snow; 
+	TILETYPE_SNOW: dirt_road_bridge_surfaces_snow;
 	default: dirt_road_bridge_surfaces;
 }
 spriteset(concrete_siding_road_bridge_surfaces, "gfx/siding-road-concrete/csrd_under.png") {
