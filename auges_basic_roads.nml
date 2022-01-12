@@ -417,8 +417,15 @@ spriteset(depots_dirt_road, "gfx/dirt-road/dirt_under.png") {
 spriteset(depots_concrete_siding_road, "gfx/siding-road-concrete/csrd_under.png") {
 	tmpl_depot()
 }
-spriteset(depots_paved_town_road, "gfx/town-road-paved/ptrd_under.png") {
+spriteset(depots_paved_town_road_no_snow, "gfx/town-road-paved/ptrd_under.png") {
 	tmpl_depot()
+}
+spriteset(depots_paved_town_road_snow, "gfx/town-road-paved/ptrd_under_snow.png") {
+	tmpl_depot()
+}
+switch(FEAT_ROADTYPES, SELF, depots_paved_town_road, terrain_type) {
+	TILETYPE_SNOW: depots_paved_town_road_snow;
+	default: depots_paved_town_road_no_snow;
 }
 spriteset(depots_asphalt_town_road, "gfx/town-road-asphalt/atrd_under.png") {
 	tmpl_depot()
