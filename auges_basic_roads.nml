@@ -682,6 +682,31 @@ template tmpl_wire_roadtypes() {
 	tmpl_wire_bridge()
 }
 
+
+// baseset sprite replacements
+
+// one way road signs
+if (traffic_side == TRAFFIC_SIDE_RIGHT) {
+	replacenew replace_oneway_road_rhd (ONE_WAY_ROAD, "gfx/decorations/oneway_rhd.png") {
+		[   0,   0,  64,  36, -31, -21]
+		[  65,   0,  64,  36, -31, -21]
+		[ 130,   0,  64,  36, -31, -21, ANIM]
+		[ 195,   0,  64,  36, -31, -21]
+		[ 260,   0,  64,  36, -31, -21]
+		[ 325,   0,  64,  36, -31, -21, ANIM]
+	}
+} else {
+	replacenew replace_oneway_road_lhd (ONE_WAY_ROAD, "gfx/decorations/oneway_lhd.png") {
+		[   0,   0,  64,  36, -31, -21]
+		[  65,   0,  64,  36, -31, -21]
+		[ 130,   0,  64,  36, -31, -21, ANIM]
+		[ 195,   0,  64,  36, -31, -21]
+		[ 260,   0,  64,  36, -31, -21]
+		[ 325,   0,  64,  36, -31, -21, ANIM]
+	}
+}
+
+
 item(FEAT_ROADTYPES, default_town_road) {
 	property {
 		label: "ROAD";
