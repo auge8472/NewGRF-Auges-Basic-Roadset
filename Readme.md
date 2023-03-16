@@ -12,8 +12,8 @@ These are the planned road types.
 
 | No. | Name                        | Speed Limit | Vehicles | Houses | Rail Crossing | Introduction Date |
 | ---:| --------------------------- | ----------- | -------- | ------ | ------------- | -----------------:|
-| 1   | foot path                   | 0 km/h      | No       | Yes    | Yes           | 0                 |
-| 2   | precinct/pedestrian zone    | 0 km/h      | No       | Yes    | Yes           | 1960              |
+| 1   | foot path                   | 0 km/h      | No       | Yes    | No            | 0                 |
+| 2   | precinct/pedestrian zone    | 0 km/h      | No       | Yes    | No            | 1960              |
 | 3   | dirt road                   | 30km/h      | Yes      | No     | Yes           | 0                 |
 | 4   | concrete accommodation road | 50km/h      | Yes      | No     | Yes           | 1955              |
 | 5   | set paved town road         | 40km/h      | Yes      | Yes    | Yes           | 0                 |
