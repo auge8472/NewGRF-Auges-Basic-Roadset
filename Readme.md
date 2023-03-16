@@ -4,7 +4,7 @@ An attempt to build a simple road-GRF, satisfying my own requirements to have pa
 
 This set is licenced under the terms of GPL2. You can find a copy of the license in the file LICENSE.md.
 
-The currently available relase is version 0.1 (codename Daisy).
+The currently available relase is version 0.1.1 (codename Daisy).
 
 ## Roads
 
