@@ -411,9 +411,19 @@ spriteset(depots_foot_path, "gfx/foot-path/foot_under.png") {
 spriteset(depots_precinct, "gfx/pedestrian-zone/pedz_under.png") {
 	tmpl_depot()
 }
-spriteset(depots_dirt_road, "gfx/dirt-road/dirt_under.png") {
+
+/* dirt road */
+spriteset(depots_dirt_road_no_snow, "gfx/dirt-road/dirt_under.png") {
 	tmpl_depot()
 }
+spriteset(depots_dirt_road_snow, "gfx/dirt-road/dirt_under_snow.png") {
+	tmpl_depot()
+}
+switch(FEAT_ROADTYPES, SELF, depots_dirt_road, terrain_type) {
+	TILETYPE_SNOW: depots_dirt_road_snow;
+	default: depots_dirt_road_no_snow;
+}
+
 spriteset(depots_concrete_siding_road, "gfx/siding-road-concrete/csrd_under.png") {
 	tmpl_depot()
 }
