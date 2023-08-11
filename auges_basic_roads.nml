@@ -433,9 +433,20 @@ spriteset(depots_asphalt_town_road, "gfx/town-road-asphalt/atrd_under.png") {
 spriteset(depots_paved_country_road, "gfx/country-road-paved/pcrd_under.png") {
 	tmpl_depot()
 }
-spriteset(depots_asphalt_country_road, "gfx/country-road-asphalt/acrd_under.png") {
 	tmpl_depot()
 }
+/* asphalted country road */
+spriteset(depots_asphalt_country_road_no_snow, "gfx/country-road-asphalt/acrd_under.png") {
+	tmpl_depot()
+}
+spriteset(depots_asphalt_country_road_snow, "gfx/country-road-asphalt/acrd_under_snow.png") {
+	tmpl_depot()
+}
+switch(FEAT_ROADTYPES, SELF, depots_asphalt_country_road, terrain_type) {
+	TILETYPE_SNOW: depots_asphalt_country_road_snow;
+	default: depots_asphalt_country_road_no_snow;
+}
+
 spriteset(depots_concrete_highway, "gfx/highway-concrete/chwy_europe_under.png") {
 	tmpl_depot()
 }
