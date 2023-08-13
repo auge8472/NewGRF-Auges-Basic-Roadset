@@ -174,6 +174,7 @@ switch(FEAT_ROADTYPES, SELF, underlay_asphalt_country_road, terrain_type) {
 	default: asphalt_country_road_europe_no_snow_underlay;
 }
 
+/* concrete highway */
 spriteset(concrete_highway_northamerica_no_snow_underlay, "gfx/highway-concrete/chwy_northamerica_under.png") {
 	tmpl_underlay_roadtypes()
 }
@@ -198,6 +199,8 @@ switch (FEAT_ROADTYPES, SELF, underlay_concrete_highway, param_road_style) {
 	1:concrete_highway_northamerica_underlay;
 	default:concrete_highway_europe_underlay;
 }
+
+/* asphalted highway */
 spriteset(asphalt_highway_northamerica_no_snow_underlay, "gfx/highway-asphalt/ahwy_northamerica_under.png") {
 	tmpl_underlay_roadtypes()
 }
@@ -455,6 +458,7 @@ switch(FEAT_ROADTYPES, SELF, depots_concrete_siding_road, terrain_type) {
 	default: depots_concrete_siding_road_no_snow;
 }
 
+/* paved town road */
 spriteset(depots_paved_town_road_no_snow, "gfx/town-road-paved/ptrd_under.png") {
 	tmpl_depot()
 }
