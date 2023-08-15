@@ -509,8 +509,17 @@ switch(FEAT_ROADTYPES, SELF, depots_asphalt_country_road, terrain_type) {
 spriteset(depots_concrete_highway, "gfx/highway-concrete/chwy_europe_under.png") {
 	tmpl_depot()
 }
-spriteset(depots_asphalt_highway, "gfx/highway-asphalt/ahwy_europe_under.png") {
+
+/* asphalted motorways */
+spriteset(depots_asphalt_highway_no_snow, "gfx/highway-asphalt/ahwy_europe_under.png") {
 	tmpl_depot()
+}
+spriteset(depots_asphalt_highway_snow, "gfx/highway-asphalt/ahwy_europe_under_snow.png") {
+	tmpl_depot()
+}
+switch(FEAT_ROADTYPES, SELF, depots_asphalt_highway, terrain_type) {
+	TILETYPE_SNOW: depots_asphalt_highway_snow;
+	default: depots_asphalt_highway_no_snow;
 }
 
 
